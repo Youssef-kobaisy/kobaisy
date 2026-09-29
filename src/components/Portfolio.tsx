@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   motion,
   useMotionValue,
@@ -7,7 +7,7 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
-import { ArrowDown, ArrowUpRight, Download, MapPin } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Download, Linkedin, MapPin } from "lucide-react";
 
 import portrait from "../assets/youssef-portrait.jpg.asset.json";
 import projectSetup from "../assets/invoice-reconciliation-setup.png.asset.json";
@@ -17,28 +17,49 @@ import resume from "../assets/youssef-resume.docx.asset.json";
 const capabilities = [
   ["01", "Python", "Advanced core, desktop systems & GUI"],
   ["02", "C++", "OOP, data structures & scalable modules"],
-  ["03", "Systems", "Serial communication & hardware bridging"],
-  ["04", "Product", "UI/UX thinking & software testing"],
+  ["03", "Desktop", "Tkinter & functional GUI development"],
+  ["04", "Systems", "Serial communication & hardware bridging"],
+  ["05", "Hardware", "Arduino control & physical device interaction"],
+  ["06", "Testing", "ISTQB Foundation syllabus & test methodologies"],
+  ["07", "Design", "User-centric desktop & mobile UI/UX"],
+  ["08", "Data & Tools", "Kaggle, Google Sheets & Microsoft Office"],
 ] as const;
+
+function useCompactLayout() {
+  const [isCompact, setIsCompact] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 767px)");
+    const update = () => setIsCompact(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+
+  return isCompact;
+}
 
 function ProjectShowcase() {
   const section = useRef<HTMLElement>(null);
   const reducedMotion = useReducedMotion();
+  const isCompact = useCompactLayout();
   const { scrollYProgress } = useScroll({
     target: section,
     offset: ["start start", "end end"],
   });
-  const scale = useTransform(scrollYProgress, [0, 0.32, 0.78, 1], [0.72, 1, 1, 0.86]);
-  const rotateX = useTransform(scrollYProgress, [0, 0.35], [10, 0]);
-  const setupOpacity = useTransform(scrollYProgress, [0.38, 0.52], [1, 0]);
-  const resultOpacity = useTransform(scrollYProgress, [0.38, 0.54], [0, 1]);
-  const copyOpacity = useTransform(scrollYProgress, [0, 0.22, 0.86, 1], [0, 1, 1, 0]);
+  const smoothProgress = useSpring(scrollYProgress, { stiffness: 72, damping: 24, mass: 0.45 });
+  const scale = useTransform(smoothProgress, [0, 0.3, 0.78, 1], isCompact ? [0.9, 1, 1.04, 0.94] : [0.76, 1, 1, 0.9]);
+  const rotateX = useTransform(smoothProgress, [0, 0.32], isCompact ? [3, 0] : [8, 0]);
+  const translateY = useTransform(smoothProgress, [0, 0.3, 0.8, 1], isCompact ? [24, 0, -8, -20] : [70, 0, -18, -55]);
+  const setupOpacity = useTransform(smoothProgress, [0.38, 0.53], [1, 0]);
+  const resultOpacity = useTransform(smoothProgress, [0.4, 0.55], [0, 1]);
+  const copyOpacity = useTransform(smoothProgress, [0, 0.18, 0.88, 1], [0, 1, 1, 0]);
 
   return (
     <section ref={section} id="work" className="relative h-[280vh] bg-background">
-      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+      <div className="sticky top-0 flex h-[100svh] items-center overflow-hidden">
         <div className="pointer-events-none absolute inset-0 project-grid opacity-40" />
-        <motion.div style={reducedMotion ? undefined : { opacity: copyOpacity }} className="absolute left-[6vw] top-[10vh] z-20">
+        <motion.div style={reducedMotion ? {} : { opacity: copyOpacity }} className="absolute left-[6vw] top-[10vh] z-20">
           <p className="section-kicker">Selected project / 2026</p>
           <h2 className="mt-3 max-w-xl font-display text-[clamp(2.4rem,6vw,6rem)] font-medium leading-[0.92]">
             Invoice<br />Reconciliation
@@ -46,21 +67,25 @@ function ProjectShowcase() {
         </motion.div>
 
         <motion.div
-          style={reducedMotion ? undefined : { scale, rotateX }}
+          style={reducedMotion ? {} : { scale, rotateX, y: translateY }}
           className="project-stage absolute left-1/2 top-1/2 w-[88vw] max-w-[1420px] -translate-x-1/2 -translate-y-[37%]"
         >
           <div className="project-frame relative aspect-[1.84/1] overflow-hidden border border-border bg-card shadow-project">
+            <div className="project-chrome absolute inset-x-0 top-0 z-10 flex h-7 items-center gap-1.5 border-b border-border px-3">
+              <span /><span /><span />
+              <p>Invoice reconciliation / product view</p>
+            </div>
             <motion.img
-              style={reducedMotion ? undefined : { opacity: setupOpacity }}
+              style={reducedMotion ? {} : { opacity: setupOpacity }}
               src={projectSetup.url}
               alt="Tax invoice reconciliation setup screen"
-              className="absolute inset-0 size-full object-cover"
+              className="project-screenshot absolute inset-0 size-full object-cover pt-7"
             />
             <motion.img
-              style={reducedMotion ? undefined : { opacity: resultOpacity }}
+              style={reducedMotion ? {} : { opacity: resultOpacity }}
               src={projectResults.url}
               alt="Tax invoice reconciliation results dashboard"
-              className="absolute inset-0 size-full object-cover"
+              className="project-screenshot absolute inset-0 size-full object-cover pt-7"
             />
           </div>
         </motion.div>
@@ -108,20 +133,21 @@ export default function Portfolio() {
           <a className="nav-link" href="#work">Work</a>
           <a className="nav-link" href="#about">About</a>
           <a className="nav-link" href="#contact">Contact</a>
+          <a className="nav-link hidden sm:block" href="https://linkedin.com/in/youssef-abdalhady-57111b38" target="_blank" rel="noreferrer">LinkedIn</a>
         </nav>
       </header>
 
       <section ref={hero} id="top" className="relative flex min-h-screen items-end overflow-hidden px-[5vw] pb-[7vh] pt-28">
         <div className="absolute inset-0 hero-grid opacity-35" />
         <motion.div
-          style={reducedMotion ? undefined : { x: smoothX, y: portraitY }}
+          style={reducedMotion ? {} : { x: smoothX, y: portraitY }}
           className="absolute bottom-0 right-[7vw] h-[82vh] w-[min(48vw,650px)] overflow-hidden portrait-mask"
         >
           <img src={portrait.url} alt="Portrait of Youssef Abdelhady Qubaisy" className="size-full object-cover object-top grayscale-[18%]" />
           <div className="absolute inset-0 portrait-grade" />
         </motion.div>
 
-        <motion.div style={reducedMotion ? undefined : { scale: heroScale, opacity: heroOpacity }} className="relative z-10 w-full origin-bottom-left">
+        <motion.div style={reducedMotion ? {} : { scale: heroScale, opacity: heroOpacity }} className="relative z-10 w-full origin-bottom-left">
           <div className="mb-[8vh] flex items-center gap-3 text-xs uppercase tracking-[0.18em] text-muted-foreground">
             <span className="status-dot" /> Available for opportunities
           </div>
@@ -137,6 +163,9 @@ export default function Portfolio() {
               <ArrowDown size={18} />
             </a>
           </div>
+          <a href="https://linkedin.com/in/youssef-abdalhady-57111b38" target="_blank" rel="noreferrer" className="hero-social mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.14em] text-foreground sm:hidden">
+            <Linkedin size={15} /> LinkedIn <ArrowUpRight size={13} />
+          </a>
         </motion.div>
       </section>
 
@@ -157,9 +186,9 @@ export default function Portfolio() {
       <section id="about" className="relative px-[6vw] py-32 md:py-48">
         <div className="grid gap-16 border-t border-border pt-10 md:grid-cols-[0.8fr_1.7fr] md:gap-24">
           <div>
-            <p className="section-kicker">Capabilities / 04</p>
+            <p className="section-kicker">Capabilities / 08</p>
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              Applied software engineering grounded in practical problem solving and a strong instinct for teaching.
+              A Software Development and Programming student at Elsewedy International Applied Technology School, combining applied engineering with a strong instinct for teaching.
             </p>
           </div>
           <div>
@@ -216,6 +245,7 @@ export default function Portfolio() {
             <a href="tel:+201107022373" className="mt-3 block font-display text-2xl transition-colors hover:text-accent">+20 11 0702 2373</a>
           </div>
           <div className="flex flex-wrap gap-3">
+            <a href="https://linkedin.com/in/youssef-abdalhady-57111b38" target="_blank" rel="noreferrer" className="action-link"><Linkedin size={16} /> LinkedIn</a>
             <a href={resume.url} download className="action-link"><Download size={16} /> Résumé</a>
             <a href="https://kaggle.com/certification/badges/youssefabdalhady/30" target="_blank" rel="noreferrer" className="action-link">Kaggle <ArrowUpRight size={16} /></a>
             <a href="https://coursera.org/verify/DTJDXJL13EON" target="_blank" rel="noreferrer" className="action-link">Coursera <ArrowUpRight size={16} /></a>
