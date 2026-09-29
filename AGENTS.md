@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- The portfolio is a single immersive scrolling experience with Motion-driven depth; keep project media as CDN asset pointers so visuals remain lightweight.
