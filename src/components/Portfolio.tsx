@@ -59,7 +59,7 @@ function ProjectShowcase() {
     <section ref={section} id="work" className="relative h-[280vh] bg-background">
       <div className="sticky top-0 flex h-[100svh] items-center overflow-hidden">
         <div className="pointer-events-none absolute inset-0 project-grid opacity-40" />
-        <motion.div style={reducedMotion ? undefined : { opacity: copyOpacity }} className="absolute left-[6vw] top-[10vh] z-20">
+        <motion.div style={reducedMotion ? {} : { opacity: copyOpacity }} className="absolute left-[6vw] top-[10vh] z-20">
           <p className="section-kicker">Selected project / 2026</p>
           <h2 className="mt-3 max-w-xl font-display text-[clamp(2.4rem,6vw,6rem)] font-medium leading-[0.92]">
             Invoice<br />Reconciliation
@@ -76,13 +76,13 @@ function ProjectShowcase() {
               <p>Invoice reconciliation / product view</p>
             </div>
             <motion.img
-              style={reducedMotion ? undefined : { opacity: setupOpacity }}
+              style={reducedMotion ? {} : { opacity: setupOpacity }}
               src={projectSetup.url}
               alt="Tax invoice reconciliation setup screen"
               className="project-screenshot absolute inset-0 size-full object-cover pt-7"
             />
             <motion.img
-              style={reducedMotion ? undefined : { opacity: resultOpacity }}
+              style={reducedMotion ? {} : { opacity: resultOpacity }}
               src={projectResults.url}
               alt="Tax invoice reconciliation results dashboard"
               className="project-screenshot absolute inset-0 size-full object-cover pt-7"
