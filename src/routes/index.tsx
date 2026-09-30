@@ -4,10 +4,10 @@ import Portfolio from "../components/Portfolio";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Youssef Abdelhady — Software Developer" },
-      { name: "description", content: "Portfolio of Youssef Abdelhady Qubaisy, a software developer building desktop systems, connected hardware, and thoughtful digital products." },
-      { property: "og:title", content: "Youssef Abdelhady — Software Developer" },
-      { property: "og:description", content: "Software, systems, and product experiences built with clarity." },
+      { title: "Youssef Abdelhady — Desktop Software Developer" },
+      { name: "description", content: "Portfolio of Youssef Abdelhady Qubaisy, a desktop software developer building Python applications, C++ systems, and connected hardware tools." },
+      { property: "og:title", content: "Youssef Abdelhady — Desktop Software Developer" },
+      { property: "og:description", content: "Desktop software, problem-solving, and connected systems built with Python and C++." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
