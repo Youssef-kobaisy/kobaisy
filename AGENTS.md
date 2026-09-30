@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - The portfolio is a single immersive scrolling experience with Motion-driven depth; keep project media as CDN asset pointers so visuals remain lightweight.
+- The portfolio defaults to English and offers an in-page Arabic/English switch; all new visitor-facing copy must support both languages.
