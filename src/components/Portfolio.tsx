@@ -256,28 +256,20 @@ export default function Portfolio() {
           </h1>
           <div className="mt-8 flex items-end justify-between gap-6">
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground md:text-base">
-              Software developer building thoughtful systems where code, hardware, and human experience meet.
+              Software development student and Python / C++ developer building desktop tools, data workflows, and hardware-connected systems.
             </p>
             <a href="#work" aria-label="Scroll to selected work" className="scroll-cue hidden size-14 items-center justify-center border border-border md:flex">
               <ArrowDown size={18} />
             </a>
           </div>
-          <a href="https://linkedin.com/in/youssef-abdalhady-57111b38" target="_blank" rel="noreferrer" className="hero-social mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.14em] text-foreground sm:hidden">
+          <a href="https://linkedin.com/in/youssef-abdalhady-57111b38" target="_blank" rel="noreferrer" className="hero-social mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.14em] text-foreground border border-border px-4 py-2.5 transition-colors hover:border-accent">
             <Linkedin size={15} /> LinkedIn <ArrowUpRight size={13} />
           </a>
         </motion.div>
       </section>
 
       <section className="relative flex min-h-[85vh] items-center px-[6vw] py-32">
-        <motion.p
-          initial={{ opacity: 0, y: 80 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-[1200px] font-display text-[clamp(2.4rem,6.8vw,7rem)] font-medium leading-[1.02]"
-        >
-          I turn complex logic into <span className="text-muted-foreground">clear, useful software</span> — from desktop tools to connected hardware.
-        </motion.p>
+        <RevealStatement />
       </section>
 
       <ProjectShowcase />
