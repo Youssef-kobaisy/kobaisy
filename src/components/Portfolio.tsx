@@ -79,7 +79,7 @@ function ProjectShowcase() {
           <div className="pointer-events-none absolute inset-0 project-grid opacity-40" />
           <motion.div
             style={reducedMotion ? {} : { opacity: titleOpacity, y: titleY }}
-            className="relative z-20 mb-[4vh] flex w-full max-w-[1180px] items-end justify-between gap-6"
+            className="relative z-20 mb-[4vh] mt-12 flex w-full max-w-[min(1180px,128svh)] items-end justify-between gap-6"
           >
             <div>
               <p className="section-kicker">Selected project / 2026</p>
@@ -92,7 +92,7 @@ function ProjectShowcase() {
             </p>
           </motion.div>
 
-          <div className="project-stage relative z-10 w-full max-w-[1180px]">
+          <div className="project-stage relative z-10 w-full max-w-[min(1180px,128svh)]">
             <motion.div
               style={reducedMotion ? {} : { scale, rotateX, z: translateZ, opacity: frameOpacity }}
               className="project-frame relative w-full overflow-hidden rounded-lg border border-border bg-card shadow-project"
