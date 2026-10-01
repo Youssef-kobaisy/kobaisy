@@ -32,17 +32,13 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import portraitData from "../assets/youssef-portrait.jpg.asset.json";
-import projectSetupData from "../assets/invoice-reconciliation-setup.png.asset.json";
-import projectResultsData from "../assets/invoice-reconciliation-results.png.asset.json";
-import resume from "../assets/youssef-resume.docx.asset.json";
+
+// Import images directly from public folder
+import portraitUrl from "/images/youssef-portrait.jpg";
+import projectSetupUrl from "/images/invoice-reconciliation-setup.png";
+import projectResultsUrl from "/images/invoice-reconciliation-results.png";
 
 type Language = "en" | "ar";
-
-// Ensure we get the URL from asset data
-const portrait = portraitData.url || portraitData;
-const projectSetup = projectSetupData.url || projectSetupData;
-const projectResults = projectResultsData.url || projectResultsData;
 
 const capabilities = [
   { icon: Braces, en: ["Programming languages", "Python and C++ with OOP, data structures, and clean modular logic."], ar: ["لغات البرمجة", "Python وC++ مع البرمجة كائنية التوجه وهياكل البيانات والمنطق النظيف المعياري."] },
@@ -171,8 +167,6 @@ function ProjectShowcase({ language, activationUrl }: { language: Language; acti
   const titleOpacity = useTransform(smoothProgress, [0.12, 0.38, 0.92, 1], [0, 1, 1, 0.4]);
   const labelOpacity = useTransform(smoothProgress, [0.62, 0.74], [0, 1]);
 
-  console.log("Project images:", { setupUrl: projectSetup, resultsUrl: projectResults });
-
   return <>
     <section ref={section} id="work" className="relative h-[260vh] bg-background">
       <div className="sticky top-0 flex h-[100svh] flex-col items-center justify-center overflow-hidden px-[5vw]">
@@ -185,24 +179,18 @@ function ProjectShowcase({ language, activationUrl }: { language: Language; acti
           <motion.div style={reducedMotion ? {} : { scale, rotateX, z: translateZ, opacity: frameOpacity }} className="project-frame relative w-full overflow-hidden rounded-lg border border-border shadow-2xl">
             <div className="project-chrome flex h-7 items-center gap-1.5 border-b border-border px-3"><span/><span/><span/><p>{language === "ar" ? "مطابقة الفواتير / عرض النتائج" : "Invoice Reconciliation / Results"}</p></div>
             <div className="relative aspect-[1365/742] w-full bg-muted">
-              {projectSetup && (
-                <motion.img 
-                  style={reducedMotion ? {} : { opacity: setupOpacity }} 
-                  src={projectSetup} 
-                  alt="Tax invoice reconciliation setup screen showing file mapping and configuration" 
-                  className="project-screenshot absolute inset-0 h-full w-full object-cover"
-                  onError={(e) => console.error("Setup image failed to load:", projectSetup, e)}
-                />
-              )}
-              {projectResults && (
-                <motion.img 
-                  style={reducedMotion ? {} : { opacity: resultOpacity }} 
-                  src={projectResults} 
-                  alt="Tax invoice reconciliation results dashboard with detailed analysis metrics" 
-                  className="project-screenshot absolute inset-0 h-full w-full object-cover"
-                  onError={(e) => console.error("Results image failed to load:", projectResults, e)}
-                />
-              )}
+              <motion.img 
+                style={reducedMotion ? {} : { opacity: setupOpacity }} 
+                src={projectSetupUrl} 
+                alt="Tax invoice reconciliation setup screen showing file mapping and configuration" 
+                className="project-screenshot absolute inset-0 h-full w-full object-cover"
+              />
+              <motion.img 
+                style={reducedMotion ? {} : { opacity: resultOpacity }} 
+                src={projectResultsUrl} 
+                alt="Tax invoice reconciliation results dashboard with detailed analysis metrics" 
+                className="project-screenshot absolute inset-0 h-full w-full object-cover"
+              />
             </div>
           </motion.div>
           <div className="mt-4 flex justify-between text-[0.65rem] uppercase tracking-[0.18em] text-muted-foreground"><span>{language === "ar" ? "01 — الإعداد والربط" : "01 — Setup & Config"}</span><motion.span style={reducedMotion ? {} : { opacity: labelOpacity }}>{language === "ar" ? "02 — عرض النتائج" : "02 — Results View"}</motion.span></div>
@@ -268,13 +256,11 @@ export default function Portfolio() {
     document.documentElement.dir = isArabic ? "rtl" : "ltr";
   }, [isArabic, language]);
 
-  console.log("Portfolio loaded - Images:", { portrait, projectSetup, projectResults });
-
   return <main dir={isArabic ? "rtl" : "ltr"} onPointerMove={(event) => { if (reducedMotion) return; mouseX.set((event.clientX / window.innerWidth - 0.5) * 18); mouseY.set((event.clientY / window.innerHeight - 0.5) * 18); }} className={`min-h-screen bg-background text-foreground ${isArabic ? "rtl" : "ltr"}`}>
-    {/* Header with Portrait (First appearance) */}
+    {/* Header with Portrait - First appearance */}
     <header className="fixed inset-x-0 top-0 z-50 flex h-20 items-center justify-between px-[5vw] mix-blend-difference">
       <a href="#top" aria-label="Youssef Abdelhady — home" className="flex items-center gap-2 text-inverse">
-        {portrait && <img src={portrait} alt="Youssef Abdelhady profile picture" className="site-avatar size-8 rounded-full object-cover" onError={(e) => console.error("Portrait header image failed:", portrait, e)} />}
+        <img src={portraitUrl} alt="Youssef Abdelhady profile picture" className="site-avatar size-8 rounded-full object-cover" />
         <span className="hidden text-xs font-medium uppercase tracking-[0.1em] sm:block">Youssef</span>
       </a>
       <nav className="flex items-center gap-3 text-[0.65rem] uppercase tracking-[0.1em] text-inverse sm:gap-6 md:gap-9">
@@ -289,11 +275,11 @@ export default function Portfolio() {
       </nav>
     </header>
 
-    {/* Hero Section with Portrait (Second appearance) */}
+    {/* Hero Section with Portrait - Second appearance */}
     <section ref={hero} id="top" className="relative flex min-h-[100svh] items-end overflow-hidden px-[5vw] pb-[7vh] pt-28">
       <div className="absolute inset-0 hero-grid opacity-35" />
       <motion.div style={reducedMotion ? {} : { x: smoothX, y: portraitY }} className="portrait-shell absolute bottom-0 right-[5vw] h-[88vh] w-[min(52vw,720px)] overflow-hidden portrait-mask">
-        {portrait && <img src={portrait} alt="Portrait of Youssef Abdelhady Qubaisy — Desktop Software Developer" className="size-full object-cover grayscale-[10%]" onError={(e) => console.error("Portrait hero image failed:", portrait, e)} />}
+        <img src={portraitUrl} alt="Portrait of Youssef Abdelhady Qubaisy — Desktop Software Developer" className="size-full object-cover grayscale-[10%]"/>
         <div className="absolute inset-0 portrait-grade"/>
       </motion.div>
       <motion.div style={reducedMotion ? {} : { y: smoothY, scale: heroScale, opacity: heroOpacity }} className="relative z-10 w-full origin-bottom-left">
@@ -339,12 +325,12 @@ export default function Portfolio() {
     {/* Project Showcase with Product Images */}
     <ProjectShowcase language={language} activationUrl={activationUrl}/>
 
-    {/* About Section */}
+    {/* About Section with Portrait - Third appearance */}
     <section id="about" className="relative px-[6vw] py-28 md:py-44">
       <div className="mx-auto max-w-[1180px]">
         <div className="grid items-center gap-14 border-t border-border pt-12 md:grid-cols-[0.85fr_1.35fr] md:gap-24">
           <motion.div initial={{ opacity: 0, rotateY: -12, y: 30 }} whileInView={{ opacity: 1, rotateY: 0, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }} className="hidden md:block">
-            {portrait && <img src={portrait} alt="Portrait of Youssef Abdelhady for about section" className="aspect-square rounded-lg object-cover grayscale-[5%]" onError={(e) => console.error("Portrait about image failed:", portrait, e)} />}
+            <img src={portraitUrl} alt="Portrait of Youssef Abdelhady for about section" className="aspect-square rounded-lg object-cover grayscale-[5%]" />
           </motion.div>
           <div>
             <p className="section-kicker">{t.aboutEyebrow}</p>
