@@ -16,6 +16,7 @@ import {
   Braces,
   CheckCircle2,
   Cpu,
+  Database,
   Download,
   ExternalLink,
   GraduationCap,
@@ -25,9 +26,9 @@ import {
   Linkedin,
   MapPin,
   MessageCircle,
+  PackageOpen,
   ShieldCheck,
   Sparkles,
-  Wrench,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -39,14 +40,14 @@ import resume from "../assets/youssef-resume.docx.asset.json";
 type Language = "en" | "ar";
 
 const capabilities = [
-  { icon: Laptop, en: ["Desktop development", "Python and Tkinter applications built around practical workflows."], ar: ["تطوير برامج سطح المكتب", "تطبيقات Python وTkinter مبنية حول احتياجات عملية حقيقية."] },
-  { icon: Braces, en: ["Programming", "Advanced Python core, C++ OOP, and data structures."], ar: ["البرمجة", "Python متقدم وC++ والبرمجة كائنية التوجه وهياكل البيانات."] },
+  { icon: Braces, en: ["Programming languages", "Python and C++ with OOP, data structures, and clean modular logic."], ar: ["لغات البرمجة", "Python وC++ مع البرمجة كائنية التوجه وهياكل البيانات ومنطق برمجي منظم."] },
+  { icon: Laptop, en: ["Desktop interfaces", "Practical desktop interfaces built with Tkinter and Qt."], ar: ["واجهات سطح المكتب", "واجهات عملية لبرامج سطح المكتب باستخدام Tkinter وQt."] },
+  { icon: Database, en: ["Database knowledge", "Working knowledge of storing, organizing, and retrieving application data."], ar: ["قواعد البيانات", "معرفة بتخزين بيانات التطبيقات وتنظيمها واسترجاعها بكفاءة."] },
   { icon: BrainCircuit, en: ["Problem solving", "Breaking complex requirements into clear, reliable software logic."], ar: ["حل المشكلات", "تحويل المتطلبات المعقدة إلى منطق برمجي واضح وموثوق."] },
   { icon: Cpu, en: ["Systems integration", "Serial communication, Arduino control, and hardware bridging."], ar: ["تكامل الأنظمة", "الاتصال التسلسلي والتحكم في Arduino وربط البرامج بالأجهزة."] },
   { icon: ShieldCheck, en: ["Software testing", "ISTQB Foundation syllabus and structured testing methodologies."], ar: ["اختبار البرمجيات", "منهج ISTQB Foundation وأساليب الاختبار المنظمة."] },
   { icon: LayoutTemplate, en: ["UI/UX design", "User-centric interfaces for desktop and mobile applications."], ar: ["تصميم UI/UX", "واجهات تتمحور حول المستخدم لتطبيقات سطح المكتب والموبايل."] },
   { icon: Blocks, en: ["Scalable code", "Modular OOP architecture designed to stay maintainable."], ar: ["كود قابل للتوسع", "بنية OOP منظمة تسهّل التطوير والصيانة."] },
-  { icon: Wrench, en: ["Data & tools", "Kaggle, Google Sheets data analysis, and Microsoft Office."], ar: ["البيانات والأدوات", "Kaggle وتحليل البيانات عبر Google Sheets وMicrosoft Office."] },
 ] as const;
 
 const caseStudy = {
@@ -82,10 +83,14 @@ const copy = {
     projectTitle: "Invoice Reconciliation",
     projectStack: "Python / Data processing / Bilingual UX",
     projectLead: "A bilingual desktop tool that compares Egyptian Tax Authority records with a company ledger — turning hours of manual checking into a clear, reviewable report.",
+    projectPitch: "Try the application, see the reconciliation flow for yourself, then contact me directly when you are ready to activate it after the trial.",
+    downloadApp: "Download the application",
+    activateApp: "Activate after trial",
     sample: "Figures from the sample reconciliation shown above.",
     aboutEyebrow: "About / Why choose me",
     aboutTitle: "Built for the desktop. Designed around the problem.",
     aboutBody: "I’m a Software Development and Programming student at Elsewedy International Applied Technology School. My focus is creating practical desktop products with Python — from intuitive interfaces to data workflows and hardware-connected systems.",
+    trustLine: "I treat every system as a real product: I understand the workflow first, build the right desktop experience, and keep communication clear from the first idea to delivery.",
     reasons: ["Problem-first thinking", "Clear user-focused interfaces", "Reliable, maintainable logic"],
     capabilities: "Capabilities / 08",
     certificates: "Certificates / Verified learning",
@@ -109,10 +114,14 @@ const copy = {
     projectTitle: "مطابقة الفواتير الضريبية",
     projectStack: "Python / معالجة البيانات / واجهة ثنائية اللغة",
     projectLead: "برنامج سطح مكتب ثنائي اللغة يقارن سجلات مصلحة الضرائب بدفتر الشركة، ويحوّل ساعات المراجعة اليدوية إلى تقرير واضح وسهل التدقيق.",
+    projectPitch: "جرّب التطبيق وتعرّف على خطوات المطابقة بنفسك، ثم تواصل معي مباشرة لتفعيل النسخة بعد انتهاء الفترة التجريبية.",
+    downloadApp: "تحميل وتجربة التطبيق",
+    activateApp: "تفعيل التطبيق بعد التجربة",
     sample: "الأرقام مأخوذة من نموذج المطابقة الظاهر بالأعلى.",
     aboutEyebrow: "عني / لماذا تختارني",
     aboutTitle: "متخصص في سطح المكتب. أبدأ دائمًا من المشكلة.",
     aboutBody: "أنا طالب تطوير وبرمجة في مدرسة السويدي الدولية للتكنولوجيا التطبيقية. أركز على بناء منتجات سطح مكتب عملية باستخدام Python، من الواجهات السهلة إلى معالجة البيانات والأنظمة المتصلة بالأجهزة.",
+    trustLine: "أتعامل مع كل نظام كمنتج حقيقي: أفهم طريقة العمل أولًا، ثم أبني تجربة سطح مكتب مناسبة، مع تواصل واضح من الفكرة حتى التسليم.",
     reasons: ["تفكير يبدأ من المشكلة", "واجهات واضحة للمستخدم", "منطق موثوق وسهل التطوير"],
     capabilities: "المهارات / 08",
     certificates: "الشهادات / تعلم موثق",
@@ -140,7 +149,7 @@ function useCompactLayout() {
   return isCompact;
 }
 
-function ProjectShowcase({ language }: { language: Language }) {
+function ProjectShowcase({ language, activationUrl }: { language: Language; activationUrl: string }) {
   const t = copy[language];
   const section = useRef<HTMLElement>(null);
   const reducedMotion = useReducedMotion();
@@ -167,19 +176,26 @@ function ProjectShowcase({ language }: { language: Language }) {
         </motion.div>
         <div className="project-stage relative z-10 w-full max-w-[min(1180px,128svh)]">
           <motion.div style={reducedMotion ? {} : { scale, rotateX, z: translateZ, opacity: frameOpacity }} className="project-frame relative w-full overflow-hidden rounded-lg border border-border bg-card shadow-project">
-            <div className="project-chrome flex h-7 items-center gap-1.5 border-b border-border px-3"><span/><span/><span/><p>Invoice reconciliation / product view</p></div>
+            <div className="project-chrome flex h-7 items-center gap-1.5 border-b border-border px-3"><span/><span/><span/><p>{language === "ar" ? "مطابقة الفواتير / عرض المنتج" : "Invoice reconciliation / product view"}</p></div>
             <div className="relative aspect-[1365/742] w-full">
               <motion.img style={reducedMotion ? {} : { opacity: setupOpacity }} src={projectSetup.url} alt="Tax invoice reconciliation setup screen" className="project-screenshot absolute inset-0 size-full object-contain" />
               <motion.img style={reducedMotion ? {} : { opacity: resultOpacity }} src={projectResults.url} alt="Tax invoice reconciliation results dashboard" className="project-screenshot absolute inset-0 size-full object-contain" />
             </div>
           </motion.div>
-          <div className="mt-4 flex justify-between text-[0.65rem] uppercase tracking-[0.18em] text-muted-foreground"><span>01 — Setup & mapping</span><motion.span style={reducedMotion ? {} : { opacity: labelOpacity }}>02 — Results</motion.span></div>
+          <div className="mt-4 flex justify-between text-[0.65rem] uppercase tracking-[0.18em] text-muted-foreground"><span>{language === "ar" ? "01 — الإعداد والربط" : "01 — Setup & mapping"}</span><motion.span style={reducedMotion ? {} : { opacity: labelOpacity }}>{language === "ar" ? "02 — النتائج" : "02 — Results"}</motion.span></div>
         </div>
       </div>
     </section>
     <section className="relative px-[6vw] pb-28 pt-10 md:pb-40">
       <div className="mx-auto max-w-[1180px]">
         <motion.p initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }} className="max-w-4xl font-display text-[clamp(1.6rem,3vw,2.6rem)] leading-[1.15]">{t.projectLead}</motion.p>
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }} className="project-actions mt-10 flex flex-col gap-6 border-y border-border py-7 md:flex-row md:items-center md:justify-between">
+          <p className="max-w-2xl text-sm leading-7 text-muted-foreground md:text-base">{t.projectPitch}</p>
+          <div className="flex shrink-0 flex-wrap gap-3">
+            <Button asChild size="lg" className="h-12 rounded-none px-5"><a href="https://download-taxapp.vercel.app" target="_blank" rel="noreferrer"><PackageOpen/>{t.downloadApp}<ArrowUpRight/></a></Button>
+            <Button asChild variant="outline" size="lg" className="h-12 rounded-none border-border bg-background/40 px-5"><a href={activationUrl} target="_blank" rel="noreferrer"><MessageCircle/>{t.activateApp}</a></Button>
+          </div>
+        </motion.div>
         <div className="mt-16 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
           {caseStudy[language].map(([title, body], i) => <motion.article key={title} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.8, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }} className="bg-background p-7"><p className="font-mono text-xs text-accent">0{i + 1}</p><h3 className="mt-5 font-display text-2xl">{title}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p></motion.article>)}
         </div>
@@ -220,6 +236,8 @@ export default function Portfolio() {
   const portraitY = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const whatsappMessage = isArabic ? "مرحبًا يوسف، أريد مناقشة تنفيذ برنامج أو مشروع جديد." : "Hello Youssef, I would like to discuss a new software product or project.";
   const whatsappUrl = `https://wa.me/201107022373?text=${encodeURIComponent(whatsappMessage)}`;
+  const activationMessage = isArabic ? "مرحبًا يوسف، انتهت الفترة التجريبية لتطبيق مطابقة الفواتير وأريد تفعيل التطبيق." : "Hello Youssef, my Invoice Reconciliation trial has ended and I would like to activate the application.";
+  const activationUrl = `https://wa.me/201107022373?text=${encodeURIComponent(activationMessage)}`;
 
   useEffect(() => {
     document.documentElement.lang = language;
@@ -246,19 +264,19 @@ export default function Portfolio() {
         <div className="mt-8 flex items-end justify-between gap-6"><p className="max-w-lg text-sm leading-relaxed text-muted-foreground md:text-base">{t.hero}</p><a href="#intro" aria-label="Continue" className="scroll-cue hidden size-14 items-center justify-center border border-border md:flex"><ArrowDown size={18}/></a></div>
         <div className="mt-6 flex flex-wrap gap-3">
           <Button asChild size="lg" className="h-12 rounded-none px-5"><a href={whatsappUrl} target="_blank" rel="noreferrer"><MessageCircle/>{t.request}<ArrowUpRight/></a></Button>
-          <Button asChild variant="outline" size="lg" className="h-12 rounded-none border-border bg-background/40 px-5 backdrop-blur-sm"><a href="https://linkedin.com/in/youssef-abdalhady-57111b38" target="_blank" rel="noreferrer"><Linkedin/>LinkedIn</a></Button>
+          <Button asChild variant="outline" size="lg" className="h-12 rounded-none border-border bg-background/40 px-5 backdrop-blur-sm"><a href="https://www.linkedin.com/in/youssef-abdalhady-57111b38b" target="_blank" rel="noreferrer"><Linkedin/>LinkedIn</a></Button>
         </div>
       </motion.div>
     </section>
 
     <section id="intro" className="relative flex min-h-[85vh] items-center px-[6vw] py-32"><RevealStatement text={t.statement}/></section>
-    <ProjectShowcase language={language}/>
+    <ProjectShowcase language={language} activationUrl={activationUrl}/>
 
     <section id="about" className="relative px-[6vw] py-28 md:py-44">
       <div className="mx-auto max-w-[1180px]">
         <div className="grid items-center gap-14 border-t border-border pt-12 md:grid-cols-[0.85fr_1.35fr] md:gap-24">
           <motion.div initial={{ opacity: 0, rotateY: -12, y: 30 }} whileInView={{ opacity: 1, rotateY: 0, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }} className="identity-frame relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden border border-border"><img src={portrait.url} alt="Youssef Abdelhady" className="size-full object-cover object-top"/><div className="identity-overlay"/><div className="absolute bottom-5 left-5 right-5 flex items-center justify-between"><span className="font-mono text-xs uppercase tracking-[0.15em]">Youssef / Developer</span><Sparkles className="text-accent" size={18}/></div></motion.div>
-          <div><p className="section-kicker">{t.aboutEyebrow}</p><h2 className="mt-5 max-w-3xl font-display text-[clamp(2.7rem,5.5vw,6rem)] font-medium leading-[0.95]">{t.aboutTitle}</h2><p className="mt-8 max-w-2xl text-base leading-8 text-muted-foreground md:text-lg">{t.aboutBody}</p><div className="mt-8 grid gap-3 sm:grid-cols-3">{t.reasons.map((reason) => <div key={reason} className="reason-pill"><CheckCircle2 size={16}/><span>{reason}</span></div>)}</div></div>
+          <div><p className="section-kicker">{t.aboutEyebrow}</p><h2 className="mt-5 max-w-3xl font-display text-[clamp(2.7rem,5.5vw,6rem)] font-medium leading-[0.95]">{t.aboutTitle}</h2><p className="mt-8 max-w-2xl text-base leading-8 text-muted-foreground md:text-lg">{t.aboutBody}</p><p className="trust-statement mt-7 max-w-2xl border-s border-accent ps-5 font-display text-lg leading-8 text-foreground md:text-xl">{t.trustLine}</p><div className="mt-8 grid gap-3 sm:grid-cols-3">{t.reasons.map((reason) => <div key={reason} className="reason-pill"><CheckCircle2 size={16}/><span>{reason}</span></div>)}</div></div>
         </div>
 
         <div className="mt-28 flex items-end justify-between border-b border-border pb-6"><p className="section-kicker">{t.capabilities}</p><BrainCircuit className="text-accent" size={22}/></div>
@@ -280,7 +298,7 @@ export default function Portfolio() {
     <section className="px-[6vw] py-28 md:py-40"><div className="grid gap-16 md:grid-cols-2 md:gap-24"><div><p className="section-kicker">{t.moreWork}</p><h2 className="mt-5 font-display text-[clamp(3rem,6vw,6.5rem)] leading-[0.95]">{t.ideas}</h2></div><div className="space-y-14 md:pt-32"><article className="border-t border-border pt-6"><p className="font-mono text-xs text-accent">Python × Serial Communication</p><h3 className="mt-4 font-display text-3xl">Arduino Control System</h3><p className="mt-4 max-w-lg text-sm leading-relaxed text-muted-foreground">{isArabic ? "برنامج سطح مكتب لإدارة الأجهزة والتحكم بها بمنطق إدخال وإخراج موثوق." : "Desktop software for managing physical hardware with reliable input/output logic and seamless device communication."}</p></article><article className="border-t border-border pt-6"><p className="font-mono text-xs text-accent">Python × Tkinter</p><h3 className="mt-4 font-display text-3xl">Task Management Application</h3><p className="mt-4 max-w-lg text-sm leading-relaxed text-muted-foreground">{isArabic ? "تطبيق متكامل لتنظيم المهام اليومية بواجهة عملية وسهلة الاستخدام." : "A full-scale daily planning application shaped by responsive interaction patterns and practical UI/UX principles."}</p></article></div></div></section>
 
     <section id="contact" className="relative flex min-h-screen flex-col justify-between overflow-hidden px-[6vw] pb-10 pt-32"><div className="absolute inset-0 contact-grid opacity-25"/><div className="relative z-10"><p className="section-kicker">{t.start}</p><h2 className="mt-6 max-w-6xl font-display text-[clamp(3.8rem,10vw,10rem)] font-medium leading-[0.86]">{t.contactTitle}</h2><p className="mt-8 max-w-xl text-muted-foreground">{t.contactBody}</p><Button asChild size="lg" className="mt-8 h-14 rounded-none px-6"><a href={whatsappUrl} target="_blank" rel="noreferrer"><MessageCircle/>{t.request}<ArrowUpRight/></a></Button></div>
-      <div className="relative z-10 mt-24 flex flex-col gap-10 border-t border-border pt-8 md:flex-row md:items-end md:justify-between"><div><p className="flex items-center gap-2 text-sm text-muted-foreground"><MapPin size={14}/>Egypt</p><a href="tel:+201107022373" className="mt-3 block font-display text-2xl transition-colors hover:text-accent">+20 11 0702 2373</a></div><div className="flex flex-wrap gap-3"><a href="https://linkedin.com/in/youssef-abdalhady-57111b38" target="_blank" rel="noreferrer" className="action-link"><Linkedin size={16}/>LinkedIn</a><a href={resume.url} download className="action-link"><Download size={16}/>Résumé</a><a href="#top" className="action-link"><Languages size={16}/>{isArabic ? "English / العربية" : "العربية / English"}</a></div></div>
+      <div className="relative z-10 mt-24 flex flex-col gap-10 border-t border-border pt-8 md:flex-row md:items-end md:justify-between"><div><p className="flex items-center gap-2 text-sm text-muted-foreground"><MapPin size={14}/>Egypt</p><a href="tel:+201107022373" className="mt-3 block font-display text-2xl transition-colors hover:text-accent">+20 11 0702 2373</a></div><div className="flex flex-wrap gap-3"><a href="https://www.linkedin.com/in/youssef-abdalhady-57111b38b" target="_blank" rel="noreferrer" className="action-link"><Linkedin size={16}/>LinkedIn</a><a href={resume.url} download className="action-link"><Download size={16}/>Résumé</a><a href="#top" className="action-link"><Languages size={16}/>{isArabic ? "English / العربية" : "العربية / English"}</a></div></div>
     </section>
   </main>;
 }

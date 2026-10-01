@@ -243,6 +243,7 @@
 
 @utility skills-grid {
   perspective: 1400px;
+  transform-style: preserve-3d;
 }
 
 @utility skill-card {
@@ -250,14 +251,22 @@
   min-height: 19rem;
   overflow: hidden;
   border: 1px solid var(--border);
-  background: linear-gradient(145deg, color-mix(in oklab, var(--card) 92%, var(--foreground)), var(--background));
+  background: linear-gradient(145deg, color-mix(in oklab, var(--card) 96%, var(--foreground)), var(--surface-deep));
   padding: 1.5rem;
   transform-style: preserve-3d;
-  box-shadow: 0 26px 65px color-mix(in oklab, var(--surface-deep) 82%, transparent);
+  box-shadow: 0 30px 75px color-mix(in oklab, var(--surface-deep) 88%, transparent), inset 0 1px color-mix(in oklab, var(--foreground) 8%, transparent);
   transition: border-color 350ms ease, transform 350ms ease, background-color 350ms ease;
   &::after { content: ""; position: absolute; inset: auto -15% -30% 30%; height: 45%; background: radial-gradient(ellipse, color-mix(in oklab, var(--accent) 12%, transparent), transparent 70%); opacity: 0; transition: opacity 350ms ease; }
-  &:hover { border-color: color-mix(in oklab, var(--accent) 45%, transparent); transform: translateY(-6px) rotateX(2deg); }
+  &:hover { border-color: color-mix(in oklab, var(--accent) 45%, transparent); transform: translateY(-8px) rotateX(3deg) rotateY(-1deg); }
   &:hover::after { opacity: 1; }
+}
+
+@utility project-actions {
+  background: linear-gradient(90deg, color-mix(in oklab, var(--accent) 6%, transparent), transparent 45%);
+}
+
+@utility trust-statement {
+  text-wrap: balance;
 }
 
 @utility skill-icon {
