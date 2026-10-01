@@ -351,7 +351,7 @@ export default function Portfolio() {
           <BrainCircuit className="text-accent" size={22}/>
         </div>
         <div className="skills-grid mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {capabilities.map(({ icon: Icon, en, ar }, i) => { const [title, detail] = language === "en" ? en : ar; return <motion.article key={en[0]} initial={{ opacity: 0, y: 45, rotateX: 8 }} whileInView={{ opacity: 1, y: 0, rotateX: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }} className="group border border-border bg-background/50 p-5 transition hover:bg-background hover:shadow-lg md:p-6"><Icon size={20} className="mb-3 text-accent transition group-hover:scale-110" /><h3 className="mb-2 font-semibold text-foreground">{title}</h3><p className="text-xs leading-6 text-muted-foreground">{detail}</p></motion.article>; }}
+          {capabilities.map(({ icon: Icon, en, ar }, i) => { const [title, detail] = language === "en" ? en : ar; return <motion.article key={en[0]} initial={{ opacity: 0, y: 45, rotateX: 8 }} whileInView={{ opacity: 1, y: 0, rotateX: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }} className="group border border-border bg-background/50 p-5 transition hover:bg-background hover:shadow-lg md:p-6"><Icon size={20} className="mb-3 text-accent transition group-hover:scale-110" /><h3 className="mb-2 font-semibold text-foreground">{title}</h3><p className="text-xs leading-6 text-muted-foreground">{detail}</p></motion.article>; })}
         </div>
       </div>
     </section>
