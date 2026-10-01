@@ -33,17 +33,17 @@ import {
 
 import { Button } from "@/components/ui/button";
 
-// Import images directly from public folder
-import portraitUrl from "/images/youssef-portrait.jpg";
-import projectSetupUrl from "/images/invoice-reconciliation-setup.png";
-import projectResultsUrl from "/images/invoice-reconciliation-results.png";
+// Import images directly from images folder (root level)
+const portraitUrl = "/images/youssef-portrait.jpg";
+const projectSetupUrl = "/images/invoice-reconciliation-setup.png";
+const projectResultsUrl = "/images/invoice-reconciliation-results.png";
 
 type Language = "en" | "ar";
 
 const capabilities = [
   { icon: Braces, en: ["Programming languages", "Python and C++ with OOP, data structures, and clean modular logic."], ar: ["لغات البرمجة", "Python وC++ مع البرمجة كائنية التوجه وهياكل البيانات والمنطق النظيف المعياري."] },
   { icon: Laptop, en: ["Desktop interfaces", "Practical desktop interfaces built with Tkinter and Qt."], ar: ["واجهات سطح المكتب", "واجهات عملية لبرامج سطح المكتب مع Tkinter و Qt."] },
-  { icon: Database, en: ["Database knowledge", "Working knowledge of storing, organizing, and retrieving application data."], ar: ["قواعد البيانات", "معرفة بتخزين وتنظيم واسترجاع بيانات التطبيقات."] },
+  { icon: Database, en: ["Database knowledge", "Working knowledge of storing, organizing, and retrieving application data."], ar: ["قواعس البيانات", "معرفة بتخزين وتنظيم واسترجاع بيانات التطبيقات."] },
   { icon: BrainCircuit, en: ["Problem solving", "Breaking complex requirements into clear, reliable software logic."], ar: ["حل المشكلات", "تحويل المتطلبات المعقدة إلى منطق برمجي واضح وموثوق."] },
   { icon: Cpu, en: ["Systems integration", "Serial communication, Arduino control, and hardware bridging."], ar: ["تكامل الأنظمة", "الاتصال التسلسلي والتحكم في Arduino وربط الأجهزة."] },
   { icon: ShieldCheck, en: ["Software testing", "ISTQB Foundation syllabus and structured testing methodologies."], ar: ["اختبار البرمجيات", "منهج ISTQB Foundation وأساليب الاختبار المنظمة."] },
@@ -184,12 +184,14 @@ function ProjectShowcase({ language, activationUrl }: { language: Language; acti
                 src={projectSetupUrl} 
                 alt="Tax invoice reconciliation setup screen showing file mapping and configuration" 
                 className="project-screenshot absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
               />
               <motion.img 
                 style={reducedMotion ? {} : { opacity: resultOpacity }} 
                 src={projectResultsUrl} 
                 alt="Tax invoice reconciliation results dashboard with detailed analysis metrics" 
                 className="project-screenshot absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
               />
             </div>
           </motion.div>
@@ -260,7 +262,7 @@ export default function Portfolio() {
     {/* Header with Portrait - First appearance */}
     <header className="fixed inset-x-0 top-0 z-50 flex h-20 items-center justify-between px-[5vw] mix-blend-difference">
       <a href="#top" aria-label="Youssef Abdelhady — home" className="flex items-center gap-2 text-inverse">
-        <img src={portraitUrl} alt="Youssef Abdelhady profile picture" className="site-avatar size-8 rounded-full object-cover" />
+        <img src={portraitUrl} alt="Youssef Abdelhady profile picture" className="site-avatar size-8 rounded-full object-cover" loading="lazy" />
         <span className="hidden text-xs font-medium uppercase tracking-[0.1em] sm:block">Youssef</span>
       </a>
       <nav className="flex items-center gap-3 text-[0.65rem] uppercase tracking-[0.1em] text-inverse sm:gap-6 md:gap-9">
@@ -279,7 +281,7 @@ export default function Portfolio() {
     <section ref={hero} id="top" className="relative flex min-h-[100svh] items-end overflow-hidden px-[5vw] pb-[7vh] pt-28">
       <div className="absolute inset-0 hero-grid opacity-35" />
       <motion.div style={reducedMotion ? {} : { x: smoothX, y: portraitY }} className="portrait-shell absolute bottom-0 right-[5vw] h-[88vh] w-[min(52vw,720px)] overflow-hidden portrait-mask">
-        <img src={portraitUrl} alt="Portrait of Youssef Abdelhady Qubaisy — Desktop Software Developer" className="size-full object-cover grayscale-[10%]"/>
+        <img src={portraitUrl} alt="Portrait of Youssef Abdelhady Qubaisy — Desktop Software Developer" className="size-full object-cover grayscale-[10%]" loading="lazy" />
         <div className="absolute inset-0 portrait-grade"/>
       </motion.div>
       <motion.div style={reducedMotion ? {} : { y: smoothY, scale: heroScale, opacity: heroOpacity }} className="relative z-10 w-full origin-bottom-left">
@@ -330,7 +332,7 @@ export default function Portfolio() {
       <div className="mx-auto max-w-[1180px]">
         <div className="grid items-center gap-14 border-t border-border pt-12 md:grid-cols-[0.85fr_1.35fr] md:gap-24">
           <motion.div initial={{ opacity: 0, rotateY: -12, y: 30 }} whileInView={{ opacity: 1, rotateY: 0, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }} className="hidden md:block">
-            <img src={portraitUrl} alt="Portrait of Youssef Abdelhady for about section" className="aspect-square rounded-lg object-cover grayscale-[5%]" />
+            <img src={portraitUrl} alt="Portrait of Youssef Abdelhady for about section" className="aspect-square rounded-lg object-cover grayscale-[5%]" loading="lazy" />
           </motion.div>
           <div>
             <p className="section-kicker">{t.aboutEyebrow}</p>
