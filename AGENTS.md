@@ -11,3 +11,4 @@
 
 - The portfolio is a single immersive scrolling experience with Motion-driven depth; keep project media as CDN asset pointers so visuals remain lightweight.
 - The portfolio defaults to English and offers an in-page Arabic/English switch; all new visitor-facing copy must support both languages.
+- Keep portfolio images and downloadable media referenced through asset pointer files under `src/assets`; this preserves project ownership while avoiding heavy binaries in the source tree.
