@@ -9,6 +9,7 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-- The portfolio is a single immersive scrolling experience with Motion-driven depth; keep project media as CDN asset pointers so visuals remain lightweight.
+- Keep a single immersive scrolling experience with Motion-driven depth; use reduced-motion fallbacks so the content remains accessible.
 - The portfolio defaults to English and offers an in-page Arabic/English switch; all new visitor-facing copy must support both languages.
-- Keep portfolio images and downloadable media referenced through asset pointer files under `src/assets`; this preserves project ownership while avoiding heavy binaries in the source tree.
+- Preserve the user-managed `/images/` portfolio image paths; the user explicitly maintains these through GitHub.
+- Express the chosen cinematic hero through semantic CSS tokens and responsive composition classes; this keeps one identity across languages and devices.
