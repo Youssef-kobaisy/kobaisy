@@ -25,6 +25,8 @@ import {
   LayoutTemplate,
   Linkedin,
   MapPin,
+  Menu,
+  X,
   MessageCircle,
   PackageOpen,
   ShieldCheck,
@@ -43,7 +45,7 @@ type Language = "en" | "ar";
 const capabilities = [
   { icon: Braces, en: ["Programming languages", "Python and C++ with OOP, data structures, and clean modular logic."], ar: ["لغات البرمجة", "Python وC++ مع البرمجة كائنية التوجه وهياكل البيانات والمنطق النظيف المعياري."] },
   { icon: Laptop, en: ["Desktop interfaces", "Practical desktop interfaces built with Tkinter and Qt."], ar: ["واجهات سطح المكتب", "واجهات عملية لبرامج سطح المكتب مع Tkinter و Qt."] },
-  { icon: Database, en: ["Database knowledge", "Working knowledge of storing, organizing, and retrieving application data."], ar: ["قواعس البيانات", "معرفة بتخزين وتنظيم واسترجاع بيانات التطبيقات."] },
+  { icon: Database, en: ["Database knowledge", "Working knowledge of storing, organizing, and retrieving application data."], ar: ["قواعد البيانات", "معرفة بتخزين وتنظيم واسترجاع بيانات التطبيقات."] },
   { icon: BrainCircuit, en: ["Problem solving", "Breaking complex requirements into clear, reliable software logic."], ar: ["حل المشكلات", "تحويل المتطلبات المعقدة إلى منطق برمجي واضح وموثوق."] },
   { icon: Cpu, en: ["Systems integration", "Serial communication, Arduino control, and hardware bridging."], ar: ["تكامل الأنظمة", "الاتصال التسلسلي والتحكم في Arduino وربط الأجهزة."] },
   { icon: ShieldCheck, en: ["Software testing", "ISTQB Foundation syllabus and structured testing methodologies."], ar: ["اختبار البرمجيات", "منهج ISTQB Foundation وأساليب الاختبار المنظمة."] },
@@ -77,7 +79,14 @@ const copy = {
   en: {
     nav: ["Work", "About", "Certificates", "Contact"],
     available: "Available for projects",
-    hero: "Desktop software specialist building focused Python applications, scalable C++ logic, and systems that connect software with real hardware.",
+    hero: "Python and C++ applications, Tkinter and Qt interfaces, and practical problem solving — built around the way you work.",
+    heroRole: "Python & C++ desktop developer",
+    heroStudent: "Student at Elsewedy International Applied Technology School",
+    viewWork: "Explore my work",
+    scroll: "Discover more",
+    workIntro: "Every project starts with understanding your workflow, then building a practical desktop tool around it.",
+    workDetail: "From invoice reconciliation to hardware integration, I focus on clear interfaces and maintainable application logic.",
+    workInvite: "Bring your workflow challenge. Let’s explore what we can build.",
     request: "Request a project",
     statement: "I build desktop software that turns demanding workflows into clear, dependable tools.",
     projectEyebrow: "Selected project / 2026",
@@ -108,7 +117,14 @@ const copy = {
   ar: {
     nav: ["الأعمال", "عني", "الشهادات", "تواصل"],
     available: "متاح لتنفيذ المشاريع",
-    hero: "متخصص في بناء برامج سطح المكتب باستخدام Python، وتطوير منطق برمجي قوي بـ C++، وربط البرمجيات بالأجهزة الحقيقية.",
+    hero: "تطبيقات Python وC++، وواجهات Tkinter وQt، وحلول عملية للمشكلات — مبنية حول طريقة عملك.",
+    heroRole: "مطور برامج سطح المكتب بـ Python وC++",
+    heroStudent: "طالب بمدرسة السويدي الدولية للتكنولوجيا التطبيقية",
+    viewWork: "استكشف أعمالي",
+    scroll: "اكتشف المزيد",
+    workIntro: "كل مشروع يبدأ بفهم طريقة عملك، ثم بناء برنامج سطح مكتب عملي يناسبها.",
+    workDetail: "من مطابقة الفواتير إلى تكامل الأجهزة، أركز على واجهات واضحة ومنطق برمجي يسهل تطويره وصيانته.",
+    workInvite: "شاركني تحديات عملك، ولنكتشف معًا ما يمكننا بناؤه.",
     request: "اطلب برنامجًا أو مشروعًا",
     statement: "أبني برامج سطح مكتب تحوّل خطوات العمل المعقدة إلى أدوات واضحة وموثوقة.",
     projectEyebrow: "مشروع مختار / 2026",
@@ -183,14 +199,14 @@ function ProjectShowcase({ language, activationUrl }: { language: Language; acti
                 style={reducedMotion ? {} : { opacity: setupOpacity }} 
                 src={projectSetupUrl} 
                 alt="Tax invoice reconciliation setup screen showing file mapping and configuration" 
-                className="project-screenshot absolute inset-0 h-full w-full object-cover"
+                className="project-screenshot absolute inset-0 h-full w-full object-contain"
                 loading="lazy"
               />
               <motion.img 
                 style={reducedMotion ? {} : { opacity: resultOpacity }} 
                 src={projectResultsUrl} 
                 alt="Tax invoice reconciliation results dashboard with detailed analysis metrics" 
-                className="project-screenshot absolute inset-0 h-full w-full object-cover"
+                className="project-screenshot absolute inset-0 h-full w-full object-contain"
                 loading="lazy"
               />
             </div>
@@ -202,9 +218,9 @@ function ProjectShowcase({ language, activationUrl }: { language: Language; acti
     <section className="relative px-[6vw] pb-28 pt-10 md:pb-40">
       <div className="mx-auto max-w-[1180px]">
         <motion.p initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }} className="max-w-2xl text-base leading-8 text-muted-foreground">{t.projectLead}</motion.p>
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }} className="mt-8 flex flex-col gap-8 border-t border-border pt-8 md:flex-row md:items-start md:justify-between">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }} className="mt-8 flex flex-col gap-8 border-t border-border pt-8 lg:flex-row lg:items-start lg:justify-between">
           <p className="max-w-2xl text-sm leading-7 text-muted-foreground md:text-base">{t.projectPitch}</p>
-          <div className="flex shrink-0 flex-wrap gap-3">
+          <div className="grid min-w-0 gap-3 sm:grid-cols-2 lg:shrink-0 lg:grid-cols-1">
             <Button asChild size="lg" className="h-12 rounded-none px-5"><a href="https://download-taxapp.vercel.app" target="_blank" rel="noreferrer"><PackageOpen/>{t.downloadApp}<ArrowUpRight/></a></Button>
             <Button asChild variant="outline" size="lg" className="h-12 rounded-none border-border bg-background/40 px-5"><a href={activationUrl} target="_blank" rel="noreferrer"><MessageCircle/>{t.activateApp}<ArrowUpRight/></a></Button>
           </div>
@@ -225,7 +241,7 @@ function RevealStatement({ text }: { text: string }) {
   const reducedMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.9", "start 0.3"] });
   const words = text.split(" ");
-  return <p ref={ref} className="max-w-[1200px] font-display text-[clamp(2.4rem,6.8vw,7rem)] font-medium leading-[1.02]">{words.map((word, i) => <Word key={`${word}-${i}`} progress={scrollYProgress} range={[i * 0.05, Math.min(i * 0.05 + 0.2, 1)]} still={reducedMotion} children={word}/>)}</p>;
+  return <p ref={ref} className="max-w-[1200px] font-display text-[clamp(2.4rem,6.8vw,7rem)] font-medium leading-[1.02]">{words.map((word, i) => <Word key={`${word}-${i}`} progress={scrollYProgress} range={[i * 0.05, Math.min(i * 0.05 + 0.2, 1)]} still={reducedMotion ?? false} children={word}/>)}</p>;
 }
 
 function Word({ children, progress, range, still }: { children: string; progress: ReturnType<typeof useScroll>["scrollYProgress"]; range: [number, number]; still: boolean }) {
@@ -236,6 +252,7 @@ function Word({ children, progress, range, still }: { children: string; progress
 
 export default function Portfolio() {
   const [language, setLanguage] = useState<Language>("en");
+  const [menuOpen, setMenuOpen] = useState(false);
   const t = copy[language];
   const isArabic = language === "ar";
   const hero = useRef<HTMLElement>(null);
@@ -259,64 +276,56 @@ export default function Portfolio() {
   }, [isArabic, language]);
 
   return <main dir={isArabic ? "rtl" : "ltr"} onPointerMove={(event) => { if (reducedMotion) return; mouseX.set((event.clientX / window.innerWidth - 0.5) * 18); mouseY.set((event.clientY / window.innerHeight - 0.5) * 18); }} className={`min-h-screen bg-background text-foreground ${isArabic ? "rtl" : "ltr"}`}>
-    {/* Header with Portrait - First appearance */}
-    <header className="fixed inset-x-0 top-0 z-50 flex h-20 items-center justify-between px-[5vw] mix-blend-difference">
-      <a href="#top" aria-label="Youssef Abdelhady — home" className="flex items-center gap-2 text-inverse">
-        <img src={portraitUrl} alt="Youssef Abdelhady profile picture" className="site-avatar size-8 rounded-full object-cover" loading="lazy" />
-        <span className="hidden text-xs font-medium uppercase tracking-[0.1em] sm:block">Youssef</span>
+    <header className="portfolio-header fixed inset-x-0 top-0 z-50 grid h-20 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-[5vw]">
+      <a href="#top" aria-label="Youssef Abdelhady — home" className="flex min-w-0 items-center gap-3" onClick={() => setMenuOpen(false)}>
+        <img src={portraitUrl} alt="Youssef Abdelhady" className="site-avatar size-9 shrink-0 rounded-full object-cover" />
+        <span className="font-display text-xl font-bold text-accent">Y.A</span>
       </a>
-      <nav className="flex items-center gap-3 text-[0.65rem] uppercase tracking-[0.1em] text-inverse sm:gap-6 md:gap-9">
-        <a className="nav-link hidden sm:block" href="#work">{t.nav[0]}</a>
-        <a className="nav-link hidden md:block" href="#about">{t.nav[1]}</a>
-        <a className="nav-link hidden lg:block" href="#certificates">{t.nav[2]}</a>
-        <a className="nav-link hidden lg:block" href="#contact">{t.nav[3]}</a>
-        <div className="language-switch" aria-label="Language">
-          <button type="button" onClick={() => setLanguage("en")} className={language === "en" ? "is-active" : ""}>EN</button>
-          <button type="button" onClick={() => setLanguage("ar")} className={language === "ar" ? "is-active" : ""}>AR</button>
+      <div className="flex shrink-0 items-center gap-4 md:gap-8">
+        <nav aria-label={isArabic ? "التنقل الرئيسي" : "Main navigation"} className="hidden items-center gap-7 text-xs text-muted-foreground md:flex">
+          {["work", "about", "certificates", "contact"].map((id, i) => <a key={id} className="nav-link hover:text-accent" href={`#${id}`}>{t.nav[i]}</a>)}
+        </nav>
+        <div className="language-switch" aria-label={isArabic ? "اللغة" : "Language"}>
+          <Button variant="ghost" size="sm" type="button" aria-pressed={language === "en"} onClick={() => setLanguage("en")} className={language === "en" ? "is-active" : ""}>EN</Button>
+          <Button variant="ghost" size="sm" type="button" aria-pressed={language === "ar"} onClick={() => setLanguage("ar")} className={language === "ar" ? "is-active" : ""}>AR</Button>
         </div>
-      </nav>
+        <Button variant="ghost" size="icon" className="md:hidden" aria-label={isArabic ? "قائمة التنقل" : "Navigation menu"} aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X/> : <Menu/>}</Button>
+      </div>
+      {menuOpen && <nav id="mobile-navigation" aria-label={isArabic ? "التنقل" : "Navigation"} className="absolute inset-x-0 top-20 grid grid-cols-2 gap-4 border-b border-border bg-background px-[5vw] py-6 text-sm md:hidden">
+        {["work", "about", "certificates", "contact"].map((id, i) => <a key={id} href={`#${id}`} className="nav-link" onClick={() => setMenuOpen(false)}>{t.nav[i]}</a>)}
+      </nav>}
     </header>
 
-    {/* Hero Section with Portrait - Second appearance */}
-    <section ref={hero} id="top" className="relative flex min-h-[100svh] items-end overflow-hidden px-[5vw] pb-[7vh] pt-28">
-      <div className="absolute inset-0 hero-grid opacity-35" />
-      <motion.div style={reducedMotion ? {} : { x: smoothX, y: portraitY }} className="portrait-shell absolute bottom-0 right-[5vw] h-[88vh] w-[min(52vw,720px)] overflow-hidden portrait-mask">
-        <img src={portraitUrl} alt="Portrait of Youssef Abdelhady Qubaisy — Desktop Software Developer" className="size-full object-cover grayscale-[10%]" loading="lazy" />
-        <div className="absolute inset-0 portrait-grade"/>
+    <section ref={hero} id="top" className="cinema-hero relative flex items-center overflow-hidden px-[6vw]">
+      <div aria-hidden="true" className="cinema-name pointer-events-none absolute inset-0 hidden items-center justify-center font-display font-black uppercase text-foreground/[0.025] lg:flex">Youssef</div>
+      <motion.div style={reducedMotion ? {} : { x: smoothX, y: portraitY }} className="cinema-portrait pointer-events-none absolute">
+        <img src={portraitUrl} alt="Youssef Abdelhady Qubaisy — Desktop Software Developer" className="h-full w-full object-cover" fetchPriority="high" />
+        <div className="cinema-portrait-shade absolute inset-0"/>
+        <span aria-hidden="true" className="cinema-corner cinema-corner-top"/>
+        <span aria-hidden="true" className="cinema-corner cinema-corner-bottom"/>
       </motion.div>
-      <motion.div style={reducedMotion ? {} : { y: smoothY, scale: heroScale, opacity: heroOpacity }} className="relative z-10 w-full origin-bottom-left">
-        <div className="mb-[6vh] flex items-center gap-3 text-xs uppercase tracking-[0.18em] text-muted-foreground">
-          <span className="status-dot"/>
-          {t.available}
-        </div>
-        <h1 className="font-display text-[clamp(4rem,12vw,11.5rem)] font-medium leading-[0.76]">
-          <span className="block">Youssef</span>
-          <span className="ml-[8vw] block text-outline">Abdelhady</span>
-        </h1>
-        <div className="mt-8 flex items-end justify-between gap-6">
-          <p className="max-w-lg text-sm leading-relaxed text-muted-foreground md:text-base">{t.hero}</p>
-          <a href="#intro" aria-label="Continue scrolling to learn more" className="hidden items-center gap-2 text-xs uppercase tracking-[0.15em] text-muted-foreground opacity-60 transition hover:opacity-100 md:flex">
-            <span>Scroll</span>
-            <ArrowDown size={16}/>
-          </a>
-        </div>
-        <div className="mt-6 flex flex-wrap gap-3">
-          <Button asChild size="lg" className="h-12 rounded-none px-5">
-            <a href={whatsappUrl} target="_blank" rel="noreferrer">
-              <MessageCircle/>
-              {t.request}
-              <ArrowUpRight/>
-            </a>
-          </Button>
-          <Button asChild variant="outline" size="lg" className="h-12 rounded-none border-border bg-background/40 px-5 backdrop-blur-sm">
-            <a href="https://www.linkedin.com/in/youssef-abdalhady-571b01349/" target="_blank" rel="noreferrer">
-              <Linkedin/>
-              LinkedIn
-              <ArrowUpRight/>
-            </a>
-          </Button>
-        </div>
+      <motion.div style={reducedMotion ? {} : { scale: heroScale, opacity: heroOpacity }} className="cinema-content relative z-10 min-w-0 origin-center">
+        <motion.p initial={reducedMotion ? false : { opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-6 flex items-center gap-3 text-xs text-muted-foreground"><span className="h-px w-8 shrink-0 bg-accent"/>{t.heroRole}</motion.p>
+        <motion.h1 initial={reducedMotion ? false : { opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.12, ease: [0.22, 1, 0.36, 1] }} className="cinema-title font-display font-black uppercase" dir="ltr">
+          <span className="block text-accent">Youssef</span>
+          <span className="block text-foreground">Abdelhady</span>
+        </motion.h1>
+        <motion.div initial={reducedMotion ? false : { opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
+          <p className="mt-7 max-w-md text-base leading-7 text-muted-foreground md:text-lg md:leading-8">{t.hero}</p>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <Button asChild size="lg" className="h-12 rounded-none bg-accent px-5 text-accent-foreground hover:bg-primary"><a href={whatsappUrl} target="_blank" rel="noreferrer"><MessageCircle/>{t.request}<ArrowUpRight/></a></Button>
+            <Button asChild variant="outline" size="lg" className="h-12 rounded-none border-border bg-background/60 px-5 hover:border-accent"><a href="#work">{t.viewWork}<ArrowDown/></a></Button>
+          </div>
+          <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-muted-foreground">
+            <a href="https://www.linkedin.com/in/youssef-abdalhady-571b01349/" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent"><Linkedin size={14}/>LinkedIn<ArrowUpRight size={12}/></a>
+            <span className="flex items-center gap-2"><span className="status-dot shrink-0"/>{t.available}</span>
+          </div>
+        </motion.div>
       </motion.div>
+      <div className="cinema-footer absolute inset-x-[6vw] bottom-7 z-10 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-5 border-t border-border pt-4">
+        <p className="flex min-w-0 items-center gap-2 text-xs leading-5 text-muted-foreground"><GraduationCap size={16} className="shrink-0 text-accent"/>{t.heroStudent}</p>
+        <a href="#intro" aria-label={t.scroll} className="scroll-cue flex size-9 shrink-0 items-center justify-center border border-border text-accent"><ArrowDown size={16}/></a>
+      </div>
     </section>
 
     {/* Introduction Statement */}
@@ -351,7 +360,7 @@ export default function Portfolio() {
           <BrainCircuit className="text-accent" size={22}/>
         </div>
         <div className="skills-grid mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {capabilities.map(({ icon: Icon, en, ar }, i) => { const [title, detail] = language === "en" ? en : ar; return <motion.article key={en[0]} initial={{ opacity: 0, y: 45, rotateX: 8 }} whileInView={{ opacity: 1, y: 0, rotateX: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }} className="group border border-border bg-background/50 p-5 transition hover:bg-background hover:shadow-lg md:p-6"><Icon size={20} className="mb-3 text-accent transition group-hover:scale-110" /><h3 className="mb-2 font-semibold text-foreground">{title}</h3><p className="text-xs leading-6 text-muted-foreground">{detail}</p></motion.article>; })}
+          {capabilities.map(({ icon: Icon, en, ar }, i) => { const [title, detail] = language === "en" ? en : ar; return <motion.article key={en[0]} initial={{ opacity: 0, y: 45, rotateX: 8 }} whileInView={{ opacity: 1, y: 0, rotateX: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }} className="skill-card group"><Icon size={20} className="mb-3 text-accent transition group-hover:scale-110" /><h3 className="mb-2 font-semibold text-foreground">{title}</h3><p className="text-xs leading-6 text-muted-foreground">{detail}</p></motion.article>; })}
         </div>
       </div>
     </section>
@@ -384,11 +393,11 @@ export default function Portfolio() {
         <div>
           <p className="section-kicker">{t.moreWork}</p>
           <h2 className="mt-5 font-display text-[clamp(2.5rem,5vw,5rem)] font-medium leading-[0.95]">{t.ideas}</h2>
-          <p className="mt-6 max-w-xl text-sm leading-7 text-muted-foreground md:text-base">Every project starts with understanding your workflow, then building the tool that solves it — on the desktop, in your hands, running locally.</p>
+          <p className="mt-6 max-w-xl text-sm leading-7 text-muted-foreground md:text-base">{t.workIntro}</p>
         </div>
         <div className="space-y-4">
-          <p className="text-sm leading-7 text-muted-foreground md:text-base">Whether it's reconciliation, data processing, system monitoring, or hardware integration, I build desktop applications that work reliably and scale with your needs.</p>
-          <p className="text-sm leading-7 text-muted-foreground md:text-base">Reach out with your workflow challenge, and let's explore what's possible.</p>
+          <p className="text-sm leading-7 text-muted-foreground md:text-base">{t.workDetail}</p>
+          <p className="text-sm leading-7 text-muted-foreground md:text-base">{t.workInvite}</p>
         </div>
       </div>
     </section>
