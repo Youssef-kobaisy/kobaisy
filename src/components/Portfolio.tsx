@@ -372,7 +372,7 @@ export default function Portfolio() {
           </div>
         </div>
       </div>
-    </motion.section>
+    </section>
 
     {/* Introduction Statement */}
     <section id="intro" className="relative flex min-h-[85vh] items-center px-[6vw] py-32">
@@ -431,7 +431,7 @@ export default function Portfolio() {
           </motion.a>
         </div>
       </div>
-    </section>
+    </motion.section>
 
     {/* More Work Section */}
     <motion.section className="relative px-[6vw] py-28 md:py-40" initial={{ opacity: 0, y: 55 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.16 }} transition={{ duration: 0.9 }}>
