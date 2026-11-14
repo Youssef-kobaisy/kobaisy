@@ -4,11 +4,19 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-User-agent: Twitterbot
+User-agent: GPTBot
 Allow: /
 
-User-agent: facebookexternalhit
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
 Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: /sitemap.xml
