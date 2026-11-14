@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Portfolio from "../components/Portfolio";
 
-const pageTitle = "Youssef Abdelhady | Python & C++ Desktop Developer";
+const pageTitle = "Youssef Kobaisy | Python & C++ Desktop Developer";
 const pageDescription =
-  "Youssef Abdelhady (Youssef Kobaisy) is a Python and C++ desktop developer in Egypt building practical applications, bilingual interfaces, and connected systems.";
+  "Youssef Kobaisy (Youssef Abdelhady), يوسف عبد الهادي، Python & C++ desktop developer in Egypt building practical software and bilingual applications.";
 const siteUrl = "https://youssef-kobaisy.work";
 const portraitUrl = `${siteUrl}/images/youssef-portrait.jpg`;
 const socialImageUrl = `${siteUrl}/og-image.png`;
@@ -45,8 +45,8 @@ export const Route = createFileRoute("/")({
             {
               "@type": "WebSite",
               "@id": `${siteUrl}/#website`,
-              name: "Youssef Abdelhady",
-              alternateName: ["Youssef Kobaisy", "يوسف عبد الهادي", "يوسف قبيصي"],
+              name: "Youssef Kobaisy",
+              alternateName: ["Youssef Abdelhady", "يوسف عبد الهادي", "يوسف قبيصي"],
               description: pageDescription,
               url: siteUrl,
               inLanguage: ["en", "ar"],
