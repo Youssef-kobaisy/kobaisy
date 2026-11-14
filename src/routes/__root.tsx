@@ -76,7 +76,6 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 const siteDescription =
   "Youssef Kobaisy (Youssef Abdelhady), يوسف عبد الهادي، Python & C++ desktop developer in Egypt building practical software and bilingual applications.";
 const siteUrl = "https://youssef-kobaisy.work";
-const portraitUrl = `${siteUrl}/images/youssef-portrait.jpg`;
 const socialImageUrl = `${siteUrl}/og-image.png`;
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
@@ -84,12 +83,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "author", content: "Youssef Abdelhady Qubaisy" },
+      { name: "author", content: "Youssef Kobaisy" },
       { name: "description", content: siteDescription },
       { name: "keywords", content: "Python developer Egypt, C++ desktop developer, Qt developer, Arduino serial communication, invoice reconciliation, مبرمج بايثون مصر, مطور تطبيقات سطح مكتب, يوسف عبد الهادي مبرمج" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Youssef Kobaisy" },
       { property: "og:image", content: socialImageUrl },
+      { property: "og:image:secure_url", content: socialImageUrl },
       { property: "og:image:type", content: "image/png" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
@@ -98,6 +98,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: socialImageUrl },
       { name: "twitter:image:alt", content: "Portrait of Youssef Abdelhady Qubaisy" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
     ],
     links: [
       { rel: "canonical", href: siteUrl },
@@ -108,11 +109,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Figtree:wght@300;400;500;600&family=Noto+Sans+Arabic:wght@400;500;700&display=swap" },
-      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon", sizes: "32x32" },
       { rel: "icon", href: "/favicon-48.png", type: "image/png", sizes: "48x48" },
       { rel: "icon", href: "/favicon-96.png", type: "image/png", sizes: "96x96" },
       { rel: "icon", href: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { rel: "icon", href: "/icon-512.png", type: "image/png", sizes: "512x512" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" },
       { rel: "manifest", href: "/site.webmanifest" },
     ],
