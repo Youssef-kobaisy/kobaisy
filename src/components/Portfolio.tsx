@@ -344,7 +344,7 @@ export default function Portfolio() {
         <p className="flex min-w-0 items-center gap-2 text-xs leading-5 text-muted-foreground"><GraduationCap size={16} className="shrink-0 text-accent"/>{t.heroStudent}</p>
         <a href="#intro" aria-label={t.scroll} className="scroll-cue flex size-9 shrink-0 items-center justify-center border border-border text-accent"><ArrowDown size={16}/></a>
       </div>
-    </motion.section>
+    </section>
 
     {/* Social & Content Section */}
     <motion.section id="content" className="relative px-[6vw] py-28 md:py-40" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.8 }}>
@@ -372,7 +372,7 @@ export default function Portfolio() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
 
     {/* Introduction Statement */}
     <section id="intro" className="relative flex min-h-[85vh] items-center px-[6vw] py-32">
