@@ -414,15 +414,15 @@ export default function Portfolio() {
               <a href="https://www.instagram.com/youssef.kobaisy?srtk=MTZreTg4c2hvcWlheQ==" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border border-border px-4 py-3 text-sm transition hover:border-accent hover:text-accent"><Instagram size={16}/>{t.instagram}<ArrowUpRight size={14}/></a>
             </div>
           </div>
-          <a href="https://youtube.com/shorts/EjrtAx8dMII?si=kp9miex8buGcOC2L" target="_blank" rel="noreferrer" className="group block overflow-hidden border border-border bg-background/50 transition hover:border-accent">
+          <div className="group overflow-hidden border border-border bg-background/50 transition hover:border-accent">
             <div className="aspect-video bg-black">
               <iframe className="h-full w-full" src="https://www.youtube.com/embed/EjrtAx8dMII" title={t.featuredVideo} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
             </div>
-            <div className="flex items-center justify-between gap-4 p-5">
+            <a href="https://youtube.com/shorts/EjrtAx8dMII?si=kp9miex8buGcOC2L" target="_blank" rel="noreferrer" className="flex items-center justify-between gap-4 p-5">
               <span className="text-sm text-muted-foreground group-hover:text-accent">{t.featuredVideo}</span>
               <ArrowUpRight size={16} className="text-accent"/>
-            </div>
-          </a>
+            </a>
+          </div>
         </div>
       </div>
     </section>
