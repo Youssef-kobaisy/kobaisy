@@ -74,27 +74,34 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   );
 }
 
+const siteDescription =
+  "Portfolio of Youssef Abdelhady Qubaisy, a Python and C++ desktop developer building practical applications, clear interfaces, and reliable connected systems.";
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Youssef Abdelhady" },
-      { name: "description", content: "Software developer portfolio" },
       { name: "author", content: "Youssef Abdelhady Qubaisy" },
+      { name: "description", content: siteDescription },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Youssef Abdelhady" },
+      { property: "og:image", content: portrait.url },
+      { property: "og:image:alt", content: "Portrait of Youssef Abdelhady Qubaisy" },
+      { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:image", content: portrait.url },
+      { name: "twitter:image:alt", content: "Portrait of Youssef Abdelhady Qubaisy" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "canonical", href: "/" },
+      { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Figtree:wght@300;400;500;600&family=Noto+Sans+Arabic:wght@400;500;700&display=swap" },
       { rel: "icon", href: portrait.url, type: "image/jpeg" },
+      { rel: "apple-touch-icon", href: portrait.url, sizes: "180x180" },
+      { rel: "manifest", href: "/site.webmanifest" },
     ],
   }),
   shellComponent: RootShell,
@@ -105,7 +112,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" dir="ltr">
       <head>
         <HeadContent />
       </head>
