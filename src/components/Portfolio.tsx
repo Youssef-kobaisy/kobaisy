@@ -79,7 +79,7 @@ const resultStats = [
 
 const copy = {
   en: {
-    nav: ["Work", "About", "Certificates", "Contact"],
+    nav: ["Work", "About", "Certificates", "Content", "Contact"],
     available: "Available for projects",
     hero: "Python and C++ applications, Tkinter and Qt interfaces, and practical problem solving — built around the way you work.",
     heroRole: "Python & C++ desktop developer",
@@ -123,7 +123,7 @@ const copy = {
     featuredVideo: "Featured technical short",
   },
   ar: {
-    nav: ["الأعمال", "عني", "الشهادات", "تواصل"],
+    nav: ["الأعمال", "عني", "الشهادات", "المحتوى", "تواصل"],
     available: "متاح لتنفيذ المشاريع",
     hero: "تطبيقات Python وC++، وواجهات Tkinter وQt، وحلول عملية للمشكلات — مبنية حول طريقة عملك.",
     heroRole: "مطور برامج سطح المكتب بـ Python وC++",
@@ -297,7 +297,7 @@ export default function Portfolio() {
       </a>
       <div className="flex shrink-0 items-center gap-4 md:gap-8">
         <nav aria-label={isArabic ? "التنقل الرئيسي" : "Main navigation"} className="hidden items-center gap-7 text-xs text-muted-foreground md:flex">
-          {["work", "about", "certificates", "contact"].map((id, i) => <a key={id} className="nav-link hover:text-accent" href={`#${id}`}>{t.nav[i]}</a>)}
+          {["work", "about", "certificates", "content", "contact"].map((id, i) => <a key={id} className="nav-link hover:text-accent" href={`#${id}`}>{t.nav[i]}</a>)}
         </nav>
         <div className="language-switch" aria-label={isArabic ? "اللغة" : "Language"}>
           <Button variant="ghost" size="sm" type="button" aria-pressed={language === "en"} onClick={() => setLanguage("en")} className={language === "en" ? "is-active" : ""}>EN</Button>
@@ -306,7 +306,7 @@ export default function Portfolio() {
         <Button variant="ghost" size="icon" className="md:hidden" aria-label={isArabic ? "قائمة التنقل" : "Navigation menu"} aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X/> : <Menu/>}</Button>
       </div>
       {menuOpen && <nav id="mobile-navigation" aria-label={isArabic ? "التنقل" : "Navigation"} className="absolute inset-x-0 top-20 grid grid-cols-2 gap-4 border-b border-border bg-background px-[5vw] py-6 text-sm md:hidden">
-        {["work", "about", "certificates", "contact"].map((id, i) => <a key={id} href={`#${id}`} className="nav-link" onClick={() => setMenuOpen(false)}>{t.nav[i]}</a>)}
+        {["work", "about", "certificates", "content", "contact"].map((id, i) => <a key={id} href={`#${id}`} className="nav-link" onClick={() => setMenuOpen(false)}>{t.nav[i]}</a>)}
       </nav>}
     </header>
 
