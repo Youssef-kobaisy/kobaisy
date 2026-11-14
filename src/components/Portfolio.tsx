@@ -211,20 +211,14 @@ function ProjectShowcase({ language, activationUrl }: { language: Language; acti
           <motion.div style={reducedMotion ? {} : { scale, rotateX, z: translateZ, opacity: frameOpacity }} className="project-frame relative w-full overflow-hidden rounded-lg border border-border shadow-2xl">
             <div className="project-chrome flex h-7 items-center gap-1.5 border-b border-border px-3"><span/><span/><span/><p>{language === "ar" ? "مطابقة الفواتير / عرض النتائج" : "Invoice Reconciliation / Results"}</p></div>
             <div className="relative aspect-[1365/742] w-full bg-muted">
-              <motion.img 
-                style={reducedMotion ? {} : { opacity: setupOpacity }} 
-                src={projectSetupUrl} 
-                alt="Tax invoice reconciliation setup screen showing file mapping and configuration" 
-                className="project-screenshot absolute inset-0 h-full w-full object-contain"
-                loading="lazy"
-              />
-              <motion.img 
-                style={reducedMotion ? {} : { opacity: resultOpacity }} 
-                src={projectResultsUrl} 
-                alt="Tax invoice reconciliation results dashboard with detailed analysis metrics" 
-                className="project-screenshot absolute inset-0 h-full w-full object-contain"
-                loading="lazy"
-              />
+              <motion.picture style={reducedMotion ? {} : { opacity: setupOpacity }} className="absolute inset-0">
+                <source srcSet="/images/invoice-reconciliation-setup.webp" type="image/webp" />
+                <motion.img src={projectSetupUrl} width="1365" height="767" alt="Tax invoice reconciliation setup screen showing file mapping and configuration" className="project-screenshot h-full w-full object-contain" loading="lazy" decoding="async" />
+              </motion.picture>
+              <motion.picture style={reducedMotion ? {} : { opacity: resultOpacity }} className="absolute inset-0">
+                <source srcSet="/images/invoice-reconciliation-results.webp" type="image/webp" />
+                <motion.img src={projectResultsUrl} width="1365" height="740" alt="Tax invoice reconciliation results dashboard with detailed analysis metrics" className="project-screenshot h-full w-full object-contain" loading="lazy" decoding="async" />
+              </motion.picture>
             </div>
           </motion.div>
           <div className="mt-4 flex justify-between text-[0.65rem] uppercase tracking-[0.18em] text-muted-foreground"><span>{language === "ar" ? "01 — الإعداد والربط" : "01 — Setup & Config"}</span><motion.span style={reducedMotion ? {} : { opacity: labelOpacity }}>{language === "ar" ? "02 — عرض النتائج" : "02 — Results View"}</motion.span></div>
@@ -294,7 +288,7 @@ export default function Portfolio() {
   return <main dir={isArabic ? "rtl" : "ltr"} onPointerMove={(event) => { if (reducedMotion) return; mouseX.set((event.clientX / window.innerWidth - 0.5) * 18); mouseY.set((event.clientY / window.innerHeight - 0.5) * 18); }} className={`min-h-screen bg-background text-foreground ${isArabic ? "rtl" : "ltr"}`}>
     <header className="portfolio-header fixed inset-x-0 top-0 z-50 grid h-20 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-[5vw]">
       <a href="#top" aria-label="Youssef Abdelhady — home" className="flex min-w-0 items-center gap-3" onClick={() => setMenuOpen(false)}>
-        <img src={portraitUrl} alt="Youssef Abdelhady" className="site-avatar size-9 shrink-0 rounded-full object-cover" />
+        <picture><source srcSet="/images/youssef-portrait.webp" type="image/webp" /><img src={portraitUrl} width="1080" height="1685" alt="Youssef Abdelhady" className="site-avatar size-9 shrink-0 rounded-full object-cover" loading="lazy" decoding="async" /></picture>
         <span className="font-display text-xl font-bold text-accent">Y.A</span>
       </a>
       <div className="flex shrink-0 items-center gap-4 md:gap-8">
@@ -315,7 +309,7 @@ export default function Portfolio() {
     <section ref={hero} id="top" className="cinema-hero relative flex items-center overflow-hidden px-[6vw]">
       <div aria-hidden="true" className="cinema-name pointer-events-none absolute inset-0 hidden items-center justify-center font-display font-black uppercase text-foreground/[0.025] lg:flex">Youssef</div>
       <motion.div style={reducedMotion ? {} : { x: smoothX, y: portraitY }} className="cinema-portrait pointer-events-none absolute">
-        <img src={portraitUrl} alt="Youssef Abdelhady Qubaisy — Desktop Software Developer" className="h-full w-full object-cover" fetchPriority="high" />
+        <picture><source srcSet="/images/youssef-portrait.webp" type="image/webp" /><img src={portraitUrl} width="1080" height="1685" alt="Youssef Abdelhady Qubaisy, Python and C++ desktop developer in Egypt" className="h-full w-full object-cover" fetchPriority="high" decoding="async" /></picture>
         <div className="cinema-portrait-shade absolute inset-0"/>
         <span aria-hidden="true" className="cinema-corner cinema-corner-top"/>
         <span aria-hidden="true" className="cinema-corner cinema-corner-bottom"/>
@@ -390,7 +384,7 @@ export default function Portfolio() {
       <div className="mx-auto max-w-[1180px]">
         <motion.div initial={{ opacity: 0, y: 55 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }} className="grid items-center gap-14 border-t border-border pt-12 md:grid-cols-[0.85fr_1.35fr] md:gap-24">
           <motion.div initial={{ opacity: 0, rotateY: -12, y: 30 }} whileInView={{ opacity: 1, rotateY: 0, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }} className="hidden md:block">
-            <img src={portraitUrl} alt="Portrait of Youssef Abdelhady for about section" className="aspect-square rounded-lg object-cover grayscale-[5%]" loading="lazy" />
+            <picture><source srcSet="/images/youssef-portrait.webp" type="image/webp" /><img src={portraitUrl} width="1080" height="1685" alt="Portrait of Youssef Abdelhady, Python and C++ desktop developer" className="aspect-square rounded-lg object-cover grayscale-[5%]" loading="lazy" decoding="async" /></picture>
           </motion.div>
           <div>
             <p className="section-kicker">{t.aboutEyebrow}</p>
