@@ -344,7 +344,7 @@ export default function Portfolio() {
         <p className="flex min-w-0 items-center gap-2 text-xs leading-5 text-muted-foreground"><GraduationCap size={16} className="shrink-0 text-accent"/>{t.heroStudent}</p>
         <a href="#intro" aria-label={t.scroll} className="scroll-cue flex size-9 shrink-0 items-center justify-center border border-border text-accent"><ArrowDown size={16}/></a>
       </div>
-    </section>
+    </motion.section>
 
     {/* Social & Content Section */}
     <motion.section id="content" className="relative px-[6vw] py-28 md:py-40" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.8 }}>
@@ -383,9 +383,9 @@ export default function Portfolio() {
     <ProjectShowcase language={language} activationUrl={activationUrl}/>
 
     {/* About Section with Portrait - Third appearance */}
-    <section id="about" className="relative px-[6vw] py-28 md:py-44">
+    <motion.section id="about" className="relative px-[6vw] py-28 md:py-44" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.12 }} transition={{ duration: 0.9 }}>
       <div className="mx-auto max-w-[1180px]">
-        <div className="grid items-center gap-14 border-t border-border pt-12 md:grid-cols-[0.85fr_1.35fr] md:gap-24">
+        <motion.div initial={{ opacity: 0, y: 55 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }} className="grid items-center gap-14 border-t border-border pt-12 md:grid-cols-[0.85fr_1.35fr] md:gap-24">
           <motion.div initial={{ opacity: 0, rotateY: -12, y: 30 }} whileInView={{ opacity: 1, rotateY: 0, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }} className="hidden md:block">
             <img src={portraitUrl} alt="Portrait of Youssef Abdelhady for about section" className="aspect-square rounded-lg object-cover grayscale-[5%]" loading="lazy" />
           </motion.div>
@@ -398,32 +398,32 @@ export default function Portfolio() {
               {t.reasons.map((reason) => <div key={reason} className="flex items-center gap-3 text-sm"><CheckCircle2 size={16} className="text-accent" />{reason}</div>)}
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Skills Section */}
-        <div className="mt-28 flex items-end justify-between border-b border-border pb-6">
+        <motion.div initial={{ opacity: 0, y: 35 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.35 }} transition={{ duration: 0.7 }} className="mt-28 flex items-end justify-between border-b border-border pb-6">
           <p className="section-kicker">{t.capabilities}</p>
           <BrainCircuit className="text-accent" size={22}/>
-        </div>
+        </motion.div>
         <div className="skills-grid mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {capabilities.map(({ icon: Icon, en, ar }, i) => { const [title, detail] = language === "en" ? en : ar; return <motion.article key={en[0]} initial={{ opacity: 0, y: 45, rotateX: 8 }} whileInView={{ opacity: 1, y: 0, rotateX: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }} className="skill-card group"><Icon size={20} className="mb-3 text-accent transition group-hover:scale-110" /><h3 className="mb-2 font-semibold text-foreground">{title}</h3><p className="text-xs leading-6 text-muted-foreground">{detail}</p></motion.article>; })}
+          {capabilities.map(({ icon: Icon, en, ar }, i) => { const [title, detail] = language === "en" ? en : ar; return <motion.article key={en[0]} initial={{ opacity: 0, y: 55, rotateX: 10 }} whileInView={{ opacity: 1, y: 0, rotateX: 0 }} viewport={{ once: true, amount: 0.22 }} transition={{ duration: 0.75, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }} className="skill-card group"><Icon size={20} className="mb-3 text-accent transition group-hover:scale-110" /><h3 className="mb-2 font-semibold text-foreground">{title}</h3><p className="text-xs leading-6 text-muted-foreground">{detail}</p></motion.article>; })}
         </div>
       </div>
-    </section>
+    </motion.section>
 
     {/* Certificates Section */}
-    <section id="certificates" className="certificate-band px-[6vw] py-28 md:py-40">
+    <motion.section id="certificates" className="certificate-band px-[6vw] py-28 md:py-40" initial={{ opacity: 0, y: 45 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.12 }} transition={{ duration: 0.9 }}>
       <div className="mx-auto max-w-[1180px]">
         <p className="section-kicker">{t.certificates}</p>
         <h2 className="mt-5 max-w-3xl font-display text-[clamp(3rem,6vw,6.5rem)] leading-[0.95]">{t.certificateTitle}</h2>
         <div className="certificate-stage mt-16 grid gap-6 md:grid-cols-2">
-          <motion.a href="https://kaggle.com/certification/badges/youssefabdalhady/30" target="_blank" rel="noreferrer" whileHover={reducedMotion ? {} : { y: -8, rotateX: 2, rotateY: -2 }} className="certificate-card group relative overflow-hidden border border-border bg-gradient-to-br from-background to-background/50 p-8 transition hover:shadow-xl">
+          <motion.a initial={{ opacity: 0, y: 35, rotateY: -5 }} whileInView={{ opacity: 1, y: 0, rotateY: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.7 }} href="https://kaggle.com/certification/badges/youssefabdalhady/30" target="_blank" rel="noreferrer" whileHover={reducedMotion ? {} : { y: -8, rotateX: 2, rotateY: -2 }} className="certificate-card group relative overflow-hidden border border-border bg-gradient-to-br from-background to-background/50 p-8 transition hover:shadow-xl">
             <Award className="mb-4 text-accent transition group-hover:scale-110" size={28}/>
             <h3 className="font-semibold text-foreground">{t.kaggleTitle}</h3>
             <p className="mt-2 text-xs text-muted-foreground">Kaggle Learning</p>
             <ArrowUpRight className="absolute bottom-4 right-4 opacity-0 transition group-hover:opacity-100" size={16}/>
           </motion.a>
-          <motion.a href="https://coursera.org/verify/DTJDXJL13EON" target="_blank" rel="noreferrer" whileHover={reducedMotion ? {} : { y: -8, rotateX: 2, rotateY: 2 }} className="certificate-card group relative overflow-hidden border border-border bg-gradient-to-br from-background to-background/50 p-8 transition hover:shadow-xl">
+          <motion.a initial={{ opacity: 0, y: 35, rotateY: 5 }} whileInView={{ opacity: 1, y: 0, rotateY: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.7, delay: 0.12 }} href="https://coursera.org/verify/DTJDXJL13EON" target="_blank" rel="noreferrer" whileHover={reducedMotion ? {} : { y: -8, rotateX: 2, rotateY: 2 }} className="certificate-card group relative overflow-hidden border border-border bg-gradient-to-br from-background to-background/50 p-8 transition hover:shadow-xl">
             <GraduationCap className="mb-4 text-accent transition group-hover:scale-110" size={28}/>
             <h3 className="font-semibold text-foreground">{t.courseraTitle}</h3>
             <p className="mt-2 text-xs text-muted-foreground">Coursera Professional</p>
@@ -434,7 +434,7 @@ export default function Portfolio() {
     </section>
 
     {/* More Work Section */}
-    <section className="px-[6vw] py-28 md:py-40">
+    <motion.section className="relative px-[6vw] py-28 md:py-40" initial={{ opacity: 0, y: 55 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.16 }} transition={{ duration: 0.9 }}>
       <div className="grid gap-16 md:grid-cols-2 md:gap-24">
         <div>
           <p className="section-kicker">{t.moreWork}</p>
@@ -446,13 +446,13 @@ export default function Portfolio() {
           <p className="text-sm leading-7 text-muted-foreground md:text-base">{t.workInvite}</p>
         </div>
       </div>
-    </section>
+    </motion.section>
 
     {/* Contact Section */}
-    <section id="contact" className="relative flex min-h-screen flex-col justify-between overflow-hidden px-[6vw] pb-10 pt-32">
+    <motion.section id="contact" className="relative flex min-h-screen flex-col justify-between overflow-hidden px-[6vw] pb-10 pt-32" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.08 }} transition={{ duration: 1 }}>
       <div className="absolute inset-0 contact-grid opacity-25"/>
       <div className="relative z-10">
-        <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
+        <motion.div initial={{ opacity: 0, y: 65, scale: 0.98 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
           <h2 className="font-display text-[clamp(3rem,8vw,8rem)] font-medium leading-[0.9]">{t.contactTitle}</h2>
           <p className="mt-6 max-w-2xl text-base leading-8 text-muted-foreground md:text-lg">{t.contactBody}</p>
           <div className="mt-10 flex flex-wrap gap-4">
@@ -492,6 +492,6 @@ export default function Portfolio() {
         </div>
         <p className="text-xs text-muted-foreground">© 2026 Youssef Abdelhady. All rights reserved. Crafted with intention and shipped with care.</p>
       </div>
-    </section>
+    </motion.section>
   </main>;
 }
