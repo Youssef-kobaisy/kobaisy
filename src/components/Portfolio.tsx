@@ -26,6 +26,7 @@ import {
   Linkedin,
   Instagram,
   Youtube,
+  Facebook,
   MapPin,
   Menu,
   X,
@@ -79,7 +80,7 @@ const resultStats = [
 
 const copy = {
   en: {
-    nav: ["Work", "About", "Certificates", "Content", "Contact"],
+    nav: ["Content", "Work", "About", "Certificates", "Contact"],
     available: "Available for projects",
     hero: "Python and C++ applications, Tkinter and Qt interfaces, and practical problem solving — built around the way you work.",
     heroRole: "Python & C++ desktop developer",
@@ -123,7 +124,7 @@ const copy = {
     featuredVideo: "Featured technical short",
   },
   ar: {
-    nav: ["الأعمال", "عني", "الشهادات", "المحتوى", "تواصل"],
+    nav: ["المحتوى", "الأعمال", "عني", "الشهادات", "تواصل"],
     available: "متاح لتنفيذ المشاريع",
     hero: "تطبيقات Python وC++، وواجهات Tkinter وQt، وحلول عملية للمشكلات — مبنية حول طريقة عملك.",
     heroRole: "مطور برامج سطح المكتب بـ Python وC++",
@@ -331,7 +332,10 @@ export default function Portfolio() {
             <Button asChild variant="outline" size="lg" className="h-12 rounded-none border-border bg-background/60 px-5 hover:border-accent"><a href="#work">{t.viewWork}<ArrowDown/></a></Button>
           </div>
           <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-muted-foreground">
-            <a href="https://www.linkedin.com/in/youssef-abdalhady-57111b38b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent"><Linkedin size={14}/>LinkedIn<ArrowUpRight size={12}/></a>
+            <a href="https://www.linkedin.com/in/youssef-abdalhady-57111b38b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-accent hover:text-foreground"><Linkedin size={14}/>LinkedIn<ArrowUpRight size={12}/></a>
+            <a href="https://www.instagram.com/youssef.kobaisy?srtk=MTZreTg4c2hvcWlheQ==" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent"><Instagram size={14}/>Instagram<ArrowUpRight size={12}/></a>
+            <a href="https://youtube.com/@tech.at.moment?si=cwTYUnw5WRDh9qDl" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent"><Youtube size={14}/>YouTube<ArrowUpRight size={12}/></a>
+            <a href="https://www.facebook.com/profile.php?id=61596196576308" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent"><Facebook size={14}/>Facebook<ArrowUpRight size={12}/></a>
             <span className="flex items-center gap-2"><span className="status-dot shrink-0"/>{t.available}</span>
           </div>
         </motion.div>
@@ -341,6 +345,34 @@ export default function Portfolio() {
         <a href="#intro" aria-label={t.scroll} className="scroll-cue flex size-9 shrink-0 items-center justify-center border border-border text-accent"><ArrowDown size={16}/></a>
       </div>
     </section>
+
+    {/* Social & Content Section */}
+    <motion.section id="content" className="relative px-[6vw] py-28 md:py-40" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.8 }}>
+      <div className="mx-auto max-w-[1180px]">
+        <p className="section-kicker">{t.socialEyebrow}</p>
+        <div className="mt-5 grid gap-10 md:grid-cols-[0.8fr_1.2fr] md:items-center md:gap-24">
+          <div>
+            <h2 className="font-display text-[clamp(2.7rem,5vw,5.5rem)] font-medium leading-[0.95]">{t.socialTitle}</h2>
+            <p className="mt-6 max-w-xl text-sm leading-7 text-muted-foreground md:text-base">{t.socialBody}</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="https://www.linkedin.com/in/youssef-abdalhady-57111b38b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border border-accent bg-accent/10 px-4 py-3 text-sm transition hover:bg-accent hover:text-accent-foreground"><Linkedin size={16}/>LinkedIn<ArrowUpRight size={14}/></a>
+              <a href="https://youtube.com/@tech.at.moment?si=cwTYUnw5WRDh9qDl" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border border-border px-4 py-3 text-sm transition hover:border-accent hover:text-accent"><Youtube size={16}/>{t.youtube}<ArrowUpRight size={14}/></a>
+              <a href="https://www.instagram.com/youssef.kobaisy?srtk=MTZreTg4c2hvcWlheQ==" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border border-border px-4 py-3 text-sm transition hover:border-accent hover:text-accent"><Instagram size={16}/>{t.instagram}<ArrowUpRight size={14}/></a>
+              <a href="https://www.facebook.com/profile.php?id=61596196576308" target="_blank" rel="noreferrer" aria-label="Facebook" className="inline-flex items-center gap-2 border border-border px-4 py-3 text-sm transition hover:border-accent hover:text-accent"><Facebook size={16}/>Facebook<ArrowUpRight size={14}/></a>
+            </div>
+          </div>
+          <div className="mx-auto w-full max-w-[340px] overflow-hidden rounded-2xl border border-border bg-black shadow-2xl transition duration-500 hover:-translate-y-2 hover:border-accent">
+            <div className="aspect-[9/16] bg-black">
+              <iframe className="h-full w-full" src="https://www.youtube.com/embed/EjrtAx8dMII" title={t.featuredVideo} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+            </div>
+            <a href="https://youtube.com/shorts/EjrtAx8dMII?si=kp9miex8buGcOC2L" target="_blank" rel="noreferrer" className="flex items-center justify-between gap-4 border-t border-border p-5">
+              <span className="text-sm text-muted-foreground group-hover:text-accent">{t.featuredVideo}</span>
+              <ArrowUpRight size={16} className="text-accent"/>
+            </a>
+          </div>
+        </div>
+      </div>
+    </motion.section>
 
     {/* Introduction Statement */}
     <section id="intro" className="relative flex min-h-[85vh] items-center px-[6vw] py-32">
@@ -401,32 +433,6 @@ export default function Portfolio() {
       </div>
     </section>
 
-    {/* Social & Content Section */}
-    <section id="content" className="relative px-[6vw] py-28 md:py-40">
-      <div className="mx-auto max-w-[1180px]">
-        <p className="section-kicker">{t.socialEyebrow}</p>
-        <div className="mt-5 grid gap-10 md:grid-cols-[0.8fr_1.2fr] md:items-end md:gap-24">
-          <div>
-            <h2 className="font-display text-[clamp(2.7rem,5vw,5.5rem)] font-medium leading-[0.95]">{t.socialTitle}</h2>
-            <p className="mt-6 max-w-xl text-sm leading-7 text-muted-foreground md:text-base">{t.socialBody}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href="https://youtube.com/@tech.at.moment?si=cwTYUnw5WRDh9qDl" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border border-border px-4 py-3 text-sm transition hover:border-accent hover:text-accent"><Youtube size={16}/>{t.youtube}<ArrowUpRight size={14}/></a>
-              <a href="https://www.instagram.com/youssef.kobaisy?srtk=MTZreTg4c2hvcWlheQ==" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border border-border px-4 py-3 text-sm transition hover:border-accent hover:text-accent"><Instagram size={16}/>{t.instagram}<ArrowUpRight size={14}/></a>
-            </div>
-          </div>
-          <div className="group overflow-hidden border border-border bg-background/50 transition hover:border-accent">
-            <div className="aspect-video bg-black">
-              <iframe className="h-full w-full" src="https://www.youtube.com/embed/EjrtAx8dMII" title={t.featuredVideo} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
-            </div>
-            <a href="https://youtube.com/shorts/EjrtAx8dMII?si=kp9miex8buGcOC2L" target="_blank" rel="noreferrer" className="flex items-center justify-between gap-4 p-5">
-              <span className="text-sm text-muted-foreground group-hover:text-accent">{t.featuredVideo}</span>
-              <ArrowUpRight size={16} className="text-accent"/>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
     {/* More Work Section */}
     <section className="px-[6vw] py-28 md:py-40">
       <div className="grid gap-16 md:grid-cols-2 md:gap-24">
@@ -468,7 +474,15 @@ export default function Portfolio() {
         </motion.div>
       </div>
 
-      <div className="relative z-10 mt-24 flex flex-col gap-10 border-t border-border pt-8 md:flex-row md:items-end md:justify-between">
+      <div className="relative z-10 mt-24 flex flex-wrap items-center gap-5 border-t border-border pt-8 text-xs text-muted-foreground">
+        <span className="uppercase tracking-[0.18em]">{t.socialEyebrow}</span>
+        <a href="https://www.linkedin.com/in/youssef-abdalhady-57111b38b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent"><Linkedin size={14}/>LinkedIn</a>
+        <a href="https://youtube.com/@tech.at.moment?si=cwTYUnw5WRDh9qDl" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent"><Youtube size={14}/>YouTube</a>
+        <a href="https://www.instagram.com/youssef.kobaisy?srtk=MTZreTg4c2hvcWlheQ==" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent"><Instagram size={14}/>Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=61596196576308" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent"><Facebook size={14}/>Facebook</a>
+      </div>
+
+      <div className="relative z-10 mt-10 flex flex-col gap-10 border-t border-border pt-8 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="flex items-center gap-2 text-sm text-muted-foreground">
             <MapPin size={16}/>
