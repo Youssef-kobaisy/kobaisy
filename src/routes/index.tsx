@@ -35,7 +35,11 @@ export const Route = createFileRoute("/")({
               url: "/",
               image: "/images/youssef-portrait.jpg",
               email: "youssef.abdalhady.dev@gmail.com",
-              sameAs: ["https://www.linkedin.com/in/youssef-abdalhady-571b01349/"],
+              sameAs: [
+                "https://www.linkedin.com/in/youssef-abdalhady-57111b38b?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+                "https://youtube.com/@tech.at.moment?si=cwTYUnw5WRDh9qDl",
+                "https://www.instagram.com/youssef.kobaisy?srtk=MTZreTg4c2hvcWlheQ==",
+              ],
             },
             {
               "@type": "WebSite",
