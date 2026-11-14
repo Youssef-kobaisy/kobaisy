@@ -12,6 +12,7 @@ Youssef Abdelhady Qubaisy is a Python and C++ desktop developer and Software Dev
 - Featured technical short: https://youtube.com/shorts/EjrtAx8dMII?si=kp9miex8buGcOC2L
 - Instagram: https://www.instagram.com/youssef.kobaisy?srtk=MTZreTg4c2hvcWlheQ==
 - Facebook: https://www.facebook.com/profile.php?id=61596196576308
+- GitHub: https://github.com/Youssef-kobaisy
 
 ## Selected work
 - Invoice Reconciliation — A bilingual desktop application that compares Egyptian Tax Authority records with a company ledger and produces a reviewable report.
