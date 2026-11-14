@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+successfully downloaded text file (SHA: 2506373b38e61084954a14151b3b53cafebb8b8f)import { useEffect, useRef, useState } from "react";
 import {
   motion,
   useMotionValue,
@@ -24,6 +24,8 @@ import {
   Laptop,
   LayoutTemplate,
   Linkedin,
+  Instagram,
+  Youtube,
   MapPin,
   Menu,
   X,
@@ -113,6 +115,12 @@ const copy = {
     start: "Start a conversation",
     contactTitle: "Have an idea? Let's build the tool it needs.",
     contactBody: "Tell me what you want to automate, simplify, or turn into a desktop product.",
+    socialEyebrow: "Follow / Learn / Build",
+    socialTitle: "Technical ideas, shared in public.",
+    socialBody: "I share practical software, development notes, and technical experiments across my social channels.",
+    youtube: "YouTube channel",
+    instagram: "Instagram profile",
+    featuredVideo: "Featured technical short",
   },
   ar: {
     nav: ["الأعمال", "عني", "الشهادات", "تواصل"],
@@ -151,6 +159,12 @@ const copy = {
     start: "ابدأ محادثة",
     contactTitle: "لديك فكرة؟ لنصنع الأداة التي تحتاجها.",
     contactBody: "أخبرني بما تريد أتمتته أو تبسيطه أو تحويله إلى برنامج سطح مكتب.",
+    socialEyebrow: "تابع / تعلّم / ابنِ",
+    socialTitle: "أفكار تقنية أشاركها باستمرار.",
+    socialBody: "أشارك برامج عملية وملاحظات عن التطوير وتجارب تقنية عبر قنواتي الاجتماعية.",
+    youtube: "قناة يوتيوب",
+    instagram: "حساب إنستغرام",
+    featuredVideo: "فيديو تقني مميز",
   },
 } as const;
 
@@ -317,7 +331,7 @@ export default function Portfolio() {
             <Button asChild variant="outline" size="lg" className="h-12 rounded-none border-border bg-background/60 px-5 hover:border-accent"><a href="#work">{t.viewWork}<ArrowDown/></a></Button>
           </div>
           <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-muted-foreground">
-            <a href="https://www.linkedin.com/in/youssef-abdalhady-571b01349/" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent"><Linkedin size={14}/>LinkedIn<ArrowUpRight size={12}/></a>
+            <a href="https://www.linkedin.com/in/youssef-abdalhady-57111b38b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent"><Linkedin size={14}/>LinkedIn<ArrowUpRight size={12}/></a>
             <span className="flex items-center gap-2"><span className="status-dot shrink-0"/>{t.available}</span>
           </div>
         </motion.div>
@@ -383,6 +397,32 @@ export default function Portfolio() {
             <p className="mt-2 text-xs text-muted-foreground">Coursera Professional</p>
             <ArrowUpRight className="absolute bottom-4 right-4 opacity-0 transition group-hover:opacity-100" size={16}/>
           </motion.a>
+        </div>
+      </div>
+    </section>
+
+    {/* Social & Content Section */}
+    <section id="content" className="relative px-[6vw] py-28 md:py-40">
+      <div className="mx-auto max-w-[1180px]">
+        <p className="section-kicker">{t.socialEyebrow}</p>
+        <div className="mt-5 grid gap-10 md:grid-cols-[0.8fr_1.2fr] md:items-end md:gap-24">
+          <div>
+            <h2 className="font-display text-[clamp(2.7rem,5vw,5.5rem)] font-medium leading-[0.95]">{t.socialTitle}</h2>
+            <p className="mt-6 max-w-xl text-sm leading-7 text-muted-foreground md:text-base">{t.socialBody}</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="https://youtube.com/@tech.at.moment?si=cwTYUnw5WRDh9qDl" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border border-border px-4 py-3 text-sm transition hover:border-accent hover:text-accent"><Youtube size={16}/>{t.youtube}<ArrowUpRight size={14}/></a>
+              <a href="https://www.instagram.com/youssef.kobaisy?srtk=MTZreTg4c2hvcWlheQ==" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border border-border px-4 py-3 text-sm transition hover:border-accent hover:text-accent"><Instagram size={16}/>{t.instagram}<ArrowUpRight size={14}/></a>
+            </div>
+          </div>
+          <a href="https://youtube.com/shorts/EjrtAx8dMII?si=kp9miex8buGcOC2L" target="_blank" rel="noreferrer" className="group block overflow-hidden border border-border bg-background/50 transition hover:border-accent">
+            <div className="aspect-video bg-black">
+              <iframe className="h-full w-full" src="https://www.youtube.com/embed/EjrtAx8dMII" title={t.featuredVideo} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+            </div>
+            <div className="flex items-center justify-between gap-4 p-5">
+              <span className="text-sm text-muted-foreground group-hover:text-accent">{t.featuredVideo}</span>
+              <ArrowUpRight size={16} className="text-accent"/>
+            </div>
+          </a>
         </div>
       </div>
     </section>
