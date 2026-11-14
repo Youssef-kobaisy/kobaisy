@@ -32,6 +32,7 @@ export const Route = createFileRoute("/")({
           "@graph": [
             {
               "@type": "Person",
+              "@id": "/#person",
               name: "Youssef Abdelhady Qubaisy",
               jobTitle: "Python & C++ Desktop Developer",
               description: pageDescription,
@@ -59,7 +60,6 @@ export const Route = createFileRoute("/")({
               name: "Featured technical short by Youssef Abdelhady",
               description: "A technical short from Youssef Abdelhady's YouTube channel.",
               thumbnailUrl: "https://i.ytimg.com/vi/EjrtAx8dMII/hqdefault.jpg",
-              uploadDate: "2026-01-01",
               embedUrl: "https://www.youtube.com/embed/EjrtAx8dMII",
               contentUrl: "https://youtube.com/shorts/EjrtAx8dMII?si=kp9miex8buGcOC2L",
             },
