@@ -74,8 +74,10 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 }
 
 const siteDescription =
-  "Portfolio of Youssef Abdelhady Qubaisy, a Python and C++ desktop developer building practical applications, clear interfaces, and reliable connected systems.";
-const portraitUrl = "/images/youssef-portrait.jpg";
+  "Youssef Abdelhady (Youssef Kobaisy) is a Python and C++ desktop developer in Egypt building practical applications, bilingual interfaces, and connected systems.";
+const siteUrl = "https://youssef-kobaisy.work";
+const portraitUrl = `${siteUrl}/images/youssef-portrait.jpg`;
+const socialImageUrl = `${siteUrl}/og-image.png`;
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
@@ -84,23 +86,33 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "author", content: "Youssef Abdelhady Qubaisy" },
       { name: "description", content: siteDescription },
+      { name: "keywords", content: "Python developer Egypt, C++ desktop developer, Qt developer, Arduino serial communication, invoice reconciliation, مبرمج بايثون مصر, مطور تطبيقات سطح مكتب, يوسف عبد الهادي مبرمج" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Youssef Abdelhady" },
-      { property: "og:image", content: portraitUrl },
+      { property: "og:image", content: socialImageUrl },
+      { property: "og:image:type", content: "image/png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { property: "og:image:alt", content: "Portrait of Youssef Abdelhady Qubaisy" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: siteUrl },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: portraitUrl },
+      { name: "twitter:image", content: socialImageUrl },
       { name: "twitter:image:alt", content: "Portrait of Youssef Abdelhady Qubaisy" },
     ],
     links: [
-      { rel: "canonical", href: "/" },
+      { rel: "canonical", href: siteUrl },
+      { rel: "alternate", hrefLang: "en", href: siteUrl },
+      { rel: "alternate", hrefLang: "ar", href: siteUrl },
+      { rel: "alternate", hrefLang: "x-default", href: siteUrl },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Figtree:wght@300;400;500;600&family=Noto+Sans+Arabic:wght@400;500;700&display=swap" },
-      { rel: "icon", href: portraitUrl, type: "image/jpeg" },
-      { rel: "apple-touch-icon", href: portraitUrl, sizes: "180x180" },
+      { rel: "icon", href: "/favicon.ico", type: "image/x-icon", sizes: "32x32" },
+      { rel: "icon", href: "/favicon-48.png", type: "image/png", sizes: "48x48" },
+      { rel: "icon", href: "/favicon-96.png", type: "image/png", sizes: "96x96" },
+      { rel: "icon", href: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" },
       { rel: "manifest", href: "/site.webmanifest" },
     ],
   }),
