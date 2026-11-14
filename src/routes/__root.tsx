@@ -75,8 +75,6 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 
 const siteDescription =
   "Youssef Kobaisy (Youssef Abdelhady), يوسف عبد الهادي، Python & C++ desktop developer in Egypt building practical software and bilingual applications.";
-const siteUrl = "https://youssef-kobaisy.work";
-const socialImageUrl = `${siteUrl}/og-image.png`;
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
@@ -88,23 +86,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "keywords", content: "Python developer Egypt, C++ desktop developer, Qt developer, Arduino serial communication, invoice reconciliation, مبرمج بايثون مصر, مطور تطبيقات سطح مكتب, يوسف عبد الهادي مبرمج" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Youssef Kobaisy" },
-      { property: "og:image", content: socialImageUrl },
-      { property: "og:image:secure_url", content: socialImageUrl },
-      { property: "og:image:type", content: "image/png" },
-      { property: "og:image:width", content: "1200" },
-      { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: "Portrait of Youssef Abdelhady Qubaisy" },
-      { property: "og:url", content: siteUrl },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: socialImageUrl },
-      { name: "twitter:image:alt", content: "Portrait of Youssef Abdelhady Qubaisy" },
       { name: "robots", content: "index, follow, max-image-preview:large" },
     ],
     links: [
-      { rel: "canonical", href: siteUrl },
-      { rel: "alternate", hrefLang: "en", href: siteUrl },
-      { rel: "alternate", hrefLang: "ar", href: siteUrl },
-      { rel: "alternate", hrefLang: "x-default", href: siteUrl },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },

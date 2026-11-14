@@ -9,3 +9,7 @@
 - [x] Apply the selected side-portrait composition and black/gold typography.
 - [x] Restore dimensional skills and preserve all existing sections and actions.
 - [ ] Verify selected composition on mobile, tablet, desktop, and in both languages.
+- [x] Include the developer role in the main heading and add headings to all case-study articles.
+- [x] Remove conflicting Open Graph types and keep the portrait preview on the homepage only.
+- [x] Preserve the user's youssef-kobaisy.work canonical, robots, and sitemap URLs.
+- [ ] Confirm final search metadata and note the crawler's default-domain mismatch.

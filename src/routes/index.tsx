@@ -24,7 +24,6 @@ export const Route = createFileRoute("/")({
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { property: "og:url", content: siteUrl },
-      { property: "og:type", content: "profile" },
       { property: "og:locale", content: "en_US" },
       { property: "og:locale:alternate", content: "ar_EG" },
       { name: "twitter:card", content: "summary_large_image" },

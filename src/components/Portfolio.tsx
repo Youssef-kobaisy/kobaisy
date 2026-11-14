@@ -236,7 +236,7 @@ function ProjectShowcase({ language, activationUrl }: { language: Language; acti
           </div>
         </motion.div>
         <div className="mt-16 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
-          {caseStudy[language].map(([title, body], i) => <motion.article key={title} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }} className="bg-background p-6 md:p-8"><p className="mb-2 text-xs font-medium uppercase tracking-[0.12em] text-accent">{title}</p><p className="text-sm leading-7 text-muted-foreground md:text-base">{body}</p></motion.article>)}
+          {caseStudy[language].map(([title, body], i) => <motion.article key={title} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }} className="bg-background p-6 md:p-8"><h3 className="mb-2 text-xs font-medium uppercase tracking-[0.12em] text-accent">{title}</h3><p className="text-sm leading-7 text-muted-foreground md:text-base">{body}</p></motion.article>)}
         </div>
         <div className="mt-12 grid grid-cols-2 gap-8 md:grid-cols-4">{resultStats.map(([value, en, ar], i) => <motion.div key={en} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.7, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}><p className="text-lg font-medium text-accent md:text-2xl">{value}</p><p className="mt-1 text-xs uppercase tracking-[0.1em] text-muted-foreground">{language === "en" ? en : ar}</p></motion.div>)}
         </div>
@@ -315,10 +315,10 @@ export default function Portfolio() {
         <span aria-hidden="true" className="cinema-corner cinema-corner-bottom"/>
       </motion.div>
       <motion.div style={reducedMotion ? {} : { scale: heroScale, opacity: heroOpacity }} className="cinema-content relative z-10 min-w-0 origin-center">
-        <motion.p initial={reducedMotion ? false : { opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-6 flex items-center gap-3 text-xs text-muted-foreground"><span className="h-px w-8 shrink-0 bg-accent"/>{t.heroRole}</motion.p>
         <motion.h1 initial={reducedMotion ? false : { opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.12, ease: [0.22, 1, 0.36, 1] }} className="cinema-title font-display font-black uppercase" dir="ltr">
           <span className="block text-accent">Youssef</span>
           <span className="block text-foreground">Abdelhady</span>
+          <span className={`mt-5 block max-w-sm font-body text-sm font-medium normal-case leading-relaxed text-muted-foreground sm:text-base ${isArabic ? "text-right" : "text-left"}`} dir={isArabic ? "rtl" : "ltr"}>{t.heroRole}</span>
         </motion.h1>
         <motion.div initial={reducedMotion ? false : { opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
           <p className="mt-7 max-w-md text-base leading-7 text-muted-foreground md:text-lg md:leading-8">{t.hero}</p>
