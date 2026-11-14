@@ -45,6 +45,7 @@ export const Route = createFileRoute("/")({
                 "https://youtube.com/@tech.at.moment?si=cwTYUnw5WRDh9qDl",
                 "https://www.instagram.com/youssef.kobaisy?srtk=MTZreTg4c2hvcWlheQ==",
                 "https://www.facebook.com/profile.php?id=61596196576308",
+                "https://github.com/Youssef-kobaisy",
               ],
             },
             {
