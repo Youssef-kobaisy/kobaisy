@@ -69,7 +69,6 @@ export const Route = createFileRoute("/")({
               description: pageDescription,
               url: siteUrl,
               image: portraitUrl,
-              email: "youssef.abdalhady.dev@gmail.com",
               alumniOf: {
                 "@type": "EducationalOrganization",
                 name: "Elsewedy International Applied Technology School",
