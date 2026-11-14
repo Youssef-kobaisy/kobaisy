@@ -12,7 +12,6 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import portrait from "../assets/youssef-portrait.jpg.asset.json";
 
 function NotFoundComponent() {
   return (
@@ -76,6 +75,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 
 const siteDescription =
   "Portfolio of Youssef Abdelhady Qubaisy, a Python and C++ desktop developer building practical applications, clear interfaces, and reliable connected systems.";
+const portraitUrl = "/images/youssef-portrait.jpg";
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
@@ -86,11 +86,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: siteDescription },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Youssef Abdelhady" },
-      { property: "og:image", content: portrait.url },
+      { property: "og:image", content: portraitUrl },
       { property: "og:image:alt", content: "Portrait of Youssef Abdelhady Qubaisy" },
       { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: portrait.url },
+      { name: "twitter:image", content: portraitUrl },
       { name: "twitter:image:alt", content: "Portrait of Youssef Abdelhady Qubaisy" },
     ],
     links: [
@@ -99,8 +99,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Figtree:wght@300;400;500;600&family=Noto+Sans+Arabic:wght@400;500;700&display=swap" },
-      { rel: "icon", href: portrait.url, type: "image/jpeg" },
-      { rel: "apple-touch-icon", href: portrait.url, sizes: "180x180" },
+      { rel: "icon", href: portraitUrl, type: "image/jpeg" },
+      { rel: "apple-touch-icon", href: portraitUrl, sizes: "180x180" },
       { rel: "manifest", href: "/site.webmanifest" },
     ],
   }),
