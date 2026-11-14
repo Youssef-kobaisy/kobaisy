@@ -1,9 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Portfolio from "../components/Portfolio";
 
-const pageTitle = "Youssef Abdelhady | Python & C++ Developer Portfolio";
+const pageTitle = "Youssef Abdelhady | Python & C++ Developer";
 const pageDescription =
-  "Meet Youssef Abdelhady, a Python and C++ desktop developer creating practical applications, bilingual interfaces, technical content, and connected systems.";
+  "Youssef Abdelhady (Youssef Kobaisy) is a Python and C++ desktop developer in Egypt building practical applications, bilingual interfaces, and connected systems.";
+const siteUrl = "https://youssef-kobaisy.work";
+const portraitUrl = `${siteUrl}/images/youssef-portrait.jpg`;
+const socialImageUrl = `${siteUrl}/og-image.png`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -13,16 +16,25 @@ export const Route = createFileRoute("/")({
       { name: "google-site-verification", content: "hL5HJhoQ8C4mTRGr9Xso14BHr_vHRKkOhwh5yJLyL1w" },
       { property: "og:title", content: pageTitle },
       { property: "og:description", content: pageDescription },
-      { property: "og:image", content: "/images/youssef-portrait.jpg" },
-      { property: "og:image:alt", content: "Portrait of Youssef Abdelhady Qubaisy" },
-      { property: "og:url", content: "/" },
+      { property: "og:image", content: socialImageUrl },
+      { property: "og:image:alt", content: "Youssef Abdelhady, Python and C++ desktop developer" },
+      { property: "og:image:type", content: "image/png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:url", content: siteUrl },
       { property: "og:type", content: "profile" },
       { property: "og:locale", content: "en_US" },
       { property: "og:locale:alternate", content: "ar_EG" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: pageTitle },
       { name: "twitter:description", content: pageDescription },
-      { name: "twitter:image", content: "/images/youssef-portrait.jpg" },
+      { name: "twitter:image", content: socialImageUrl },
+    ],
+    links: [
+      { rel: "canonical", href: siteUrl },
+      { rel: "alternate", hrefLang: "en", href: siteUrl },
+      { rel: "alternate", hrefLang: "ar", href: siteUrl },
+      { rel: "alternate", hrefLang: "x-default", href: siteUrl },
     ],
     scripts: [
       {
@@ -31,30 +43,68 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@graph": [
             {
+              "@type": "WebSite",
+              "@id": `${siteUrl}/#website`,
+              name: "Youssef Abdelhady",
+              alternateName: ["Youssef Kobaisy", "يوسف عبد الهادي", "يوسف قبيصي"],
+              description: pageDescription,
+              url: siteUrl,
+              inLanguage: ["en", "ar"],
+            },
+            {
+              "@type": "ProfilePage",
+              "@id": `${siteUrl}/#profile`,
+              name: pageTitle,
+              url: siteUrl,
+              isPartOf: { "@id": `${siteUrl}/#website` },
+              mainEntity: { "@id": `${siteUrl}/#person` },
+              inLanguage: ["en", "ar"],
+            },
+            {
               "@type": "Person",
-              "@id": "/#person",
-              name: "Youssef Abdelhady Qubaisy",
+              "@id": `${siteUrl}/#person`,
+              name: "Youssef Abdelhady",
+              alternateName: ["Youssef Kobaisy", "يوسف عبد الهادي", "يوسف قبيصي"],
               jobTitle: "Python & C++ Desktop Developer",
               description: pageDescription,
-              url: "/",
-              image: "/images/youssef-portrait.jpg",
+              url: siteUrl,
+              image: portraitUrl,
               email: "youssef.abdalhady.dev@gmail.com",
-              knowsAbout: ["Python", "C++", "Tkinter", "Qt", "Desktop software", "Data processing", "UI/UX", "Arduino integration"],
+              alumniOf: {
+                "@type": "EducationalOrganization",
+                name: "Elsewedy International Applied Technology School",
+                address: { "@type": "PostalAddress", addressCountry: "EG" },
+              },
+              affiliation: {
+                "@type": "EducationalOrganization",
+                name: "Elsewedy International Applied Technology School",
+              },
+              knowsAbout: ["Python", "C++", "Qt", "Tkinter", "Arduino", "Serial communication", "Data processing", "Modular OOP", "UI/UX", "Software testing"],
               sameAs: [
-                "https://www.linkedin.com/in/youssef-abdalhady-57111b38b?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-                "https://youtube.com/@tech.at.moment?si=cwTYUnw5WRDh9qDl",
-                "https://www.instagram.com/youssef.kobaisy?srtk=MTZreTg4c2hvcWlheQ==",
-                "https://www.facebook.com/profile.php?id=61596196576308",
                 "https://github.com/Youssef-kobaisy",
+                "https://www.linkedin.com/in/youssef-abdalhady-57111b38b",
+                "https://youtube.com/@tech.at.moment",
+                "https://www.instagram.com/youssef.kobaisy",
+                "https://www.facebook.com/profile.php?id=61596196576308",
               ],
             },
             {
-              "@type": "WebSite",
-              name: "Youssef Abdelhady",
-              description: pageDescription,
-              url: "/",
+              "@type": "SoftwareApplication",
+              "@id": `${siteUrl}/#invoice-reconciliation`,
+              name: "Invoice Reconciliation",
+              alternateName: "مطابقة الفواتير الضريبية",
+              description: "A bilingual desktop application comparing Egyptian Tax Authority records with a company ledger and producing a clear report.",
+              applicationCategory: "BusinessApplication",
+              operatingSystem: "Windows",
+              author: { "@id": `${siteUrl}/#person` },
               inLanguage: ["en", "ar"],
-              about: { "@id": "/#person" },
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": `${siteUrl}/#breadcrumbs`,
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+              ],
             },
             {
               "@type": "VideoObject",
@@ -62,7 +112,8 @@ export const Route = createFileRoute("/")({
               description: "A technical short from Youssef Abdelhady's YouTube channel.",
               thumbnailUrl: "https://i.ytimg.com/vi/EjrtAx8dMII/hqdefault.jpg",
               embedUrl: "https://www.youtube.com/embed/EjrtAx8dMII",
-              contentUrl: "https://youtube.com/shorts/EjrtAx8dMII?si=kp9miex8buGcOC2L",
+              contentUrl: "https://youtube.com/shorts/EjrtAx8dMII",
+              publisher: { "@id": `${siteUrl}/#person` },
             },
           ],
         }),
