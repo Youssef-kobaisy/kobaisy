@@ -74,7 +74,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 }
 
 const siteDescription =
-  "Youssef Abdelhady (Youssef Kobaisy) is a Python and C++ desktop developer in Egypt building practical applications, bilingual interfaces, and connected systems.";
+  "Youssef Kobaisy (Youssef Abdelhady), يوسف عبد الهادي، Python & C++ desktop developer in Egypt building practical software and bilingual applications.";
 const siteUrl = "https://youssef-kobaisy.work";
 const portraitUrl = `${siteUrl}/images/youssef-portrait.jpg`;
 const socialImageUrl = `${siteUrl}/og-image.png`;
@@ -88,7 +88,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: siteDescription },
       { name: "keywords", content: "Python developer Egypt, C++ desktop developer, Qt developer, Arduino serial communication, invoice reconciliation, مبرمج بايثون مصر, مطور تطبيقات سطح مكتب, يوسف عبد الهادي مبرمج" },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Youssef Abdelhady" },
+      { property: "og:site_name", content: "Youssef Kobaisy" },
       { property: "og:image", content: socialImageUrl },
       { property: "og:image:type", content: "image/png" },
       { property: "og:image:width", content: "1200" },
