@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Portfolio from "../components/Portfolio";
 
-const pageTitle = "Youssef Abdelhady | Python & C++ Desktop Developer";
+const pageTitle = "Youssef Abdelhady | Python & C++ Developer Portfolio";
 const pageDescription =
-  "Explore Youssef Abdelhady's portfolio of Python and C++ desktop applications, bilingual interfaces, invoice reconciliation, and practical software solutions.";
+  "Meet Youssef Abdelhady, a Python and C++ desktop developer creating practical applications, bilingual interfaces, technical content, and connected systems.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -16,7 +16,10 @@ export const Route = createFileRoute("/")({
       { property: "og:image", content: "/images/youssef-portrait.jpg" },
       { property: "og:image:alt", content: "Portrait of Youssef Abdelhady Qubaisy" },
       { property: "og:url", content: "/" },
-      { property: "og:type", content: "website" },
+      { property: "og:type", content: "profile" },
+      { property: "og:locale", content: "en_US" },
+      { property: "og:locale:alternate", content: "ar_EG" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: pageTitle },
       { name: "twitter:description", content: pageDescription },
       { name: "twitter:image", content: "/images/youssef-portrait.jpg" },
@@ -35,10 +38,12 @@ export const Route = createFileRoute("/")({
               url: "/",
               image: "/images/youssef-portrait.jpg",
               email: "youssef.abdalhady.dev@gmail.com",
+              knowsAbout: ["Python", "C++", "Tkinter", "Qt", "Desktop software", "Data processing", "UI/UX", "Arduino integration"],
               sameAs: [
                 "https://www.linkedin.com/in/youssef-abdalhady-57111b38b?utm_source=share_via&utm_content=profile&utm_medium=member_android",
                 "https://youtube.com/@tech.at.moment?si=cwTYUnw5WRDh9qDl",
                 "https://www.instagram.com/youssef.kobaisy?srtk=MTZreTg4c2hvcWlheQ==",
+                "https://www.facebook.com/profile.php?id=61596196576308",
               ],
             },
             {
@@ -47,6 +52,16 @@ export const Route = createFileRoute("/")({
               description: pageDescription,
               url: "/",
               inLanguage: ["en", "ar"],
+              about: { "@id": "/#person" },
+            },
+            {
+              "@type": "VideoObject",
+              name: "Featured technical short by Youssef Abdelhady",
+              description: "A technical short from Youssef Abdelhady's YouTube channel.",
+              thumbnailUrl: "https://i.ytimg.com/vi/EjrtAx8dMII/hqdefault.jpg",
+              uploadDate: "2026-01-01",
+              embedUrl: "https://www.youtube.com/embed/EjrtAx8dMII",
+              contentUrl: "https://youtube.com/shorts/EjrtAx8dMII?si=kp9miex8buGcOC2L",
             },
           ],
         }),
