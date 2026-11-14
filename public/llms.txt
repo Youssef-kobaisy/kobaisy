@@ -1,0 +1,17 @@
+# Youssef Abdelhady
+
+## Summary
+Youssef Abdelhady Qubaisy is a Python and C++ desktop developer and Software Development and Programming student. He builds practical desktop applications, bilingual interfaces, and connected systems.
+
+## Main page
+- / — Portfolio, selected work, capabilities, certificates, and contact information.
+
+## Selected work
+- Invoice Reconciliation — A bilingual desktop application that compares Egyptian Tax Authority records with a company ledger and produces a reviewable report.
+
+## Capabilities
+Python, C++, object-oriented programming, Tkinter, Qt, data processing, database fundamentals, serial communication, Arduino integration, software testing, UI/UX, and maintainable modular architecture.
+
+## Contact
+- Email: youssef.abdalhady.dev@gmail.com
+- LinkedIn: https://www.linkedin.com/in/youssef-abdalhady-571b01349/
