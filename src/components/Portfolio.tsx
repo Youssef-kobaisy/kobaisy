@@ -27,6 +27,7 @@ import {
   Instagram,
   Youtube,
   Facebook,
+  Github,
   MapPin,
   Menu,
   X,
@@ -336,6 +337,7 @@ export default function Portfolio() {
             <a href="https://www.instagram.com/youssef.kobaisy?srtk=MTZreTg4c2hvcWlheQ==" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent"><Instagram size={14}/>Instagram<ArrowUpRight size={12}/></a>
             <a href="https://youtube.com/@tech.at.moment?si=cwTYUnw5WRDh9qDl" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent"><Youtube size={14}/>YouTube<ArrowUpRight size={12}/></a>
             <a href="https://www.facebook.com/profile.php?id=61596196576308" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent"><Facebook size={14}/>Facebook<ArrowUpRight size={12}/></a>
+            <a href="https://github.com/Youssef-kobaisy" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent"><Github size={14}/>GitHub<ArrowUpRight size={12}/></a>
             <span className="flex items-center gap-2"><span className="status-dot shrink-0"/>{t.available}</span>
           </div>
         </motion.div>
@@ -359,6 +361,7 @@ export default function Portfolio() {
               <a href="https://youtube.com/@tech.at.moment?si=cwTYUnw5WRDh9qDl" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border border-border px-4 py-3 text-sm transition hover:border-accent hover:text-accent"><Youtube size={16}/>{t.youtube}<ArrowUpRight size={14}/></a>
               <a href="https://www.instagram.com/youssef.kobaisy?srtk=MTZreTg4c2hvcWlheQ==" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border border-border px-4 py-3 text-sm transition hover:border-accent hover:text-accent"><Instagram size={16}/>{t.instagram}<ArrowUpRight size={14}/></a>
               <a href="https://www.facebook.com/profile.php?id=61596196576308" target="_blank" rel="noreferrer" aria-label="Facebook" className="inline-flex items-center gap-2 border border-border px-4 py-3 text-sm transition hover:border-accent hover:text-accent"><Facebook size={16}/>Facebook<ArrowUpRight size={14}/></a>
+              <a href="https://github.com/Youssef-kobaisy" target="_blank" rel="noreferrer" aria-label="GitHub" className="inline-flex items-center gap-2 border border-border px-4 py-3 text-sm transition hover:border-accent hover:text-accent"><Github size={16}/>GitHub<ArrowUpRight size={14}/></a>
             </div>
           </div>
           <div className="mx-auto w-full max-w-[340px] overflow-hidden rounded-2xl border border-border bg-black shadow-2xl transition duration-500 hover:-translate-y-2 hover:border-accent">
@@ -480,6 +483,7 @@ export default function Portfolio() {
         <a href="https://youtube.com/@tech.at.moment?si=cwTYUnw5WRDh9qDl" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent"><Youtube size={14}/>YouTube</a>
         <a href="https://www.instagram.com/youssef.kobaisy?srtk=MTZreTg4c2hvcWlheQ==" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent"><Instagram size={14}/>Instagram</a>
         <a href="https://www.facebook.com/profile.php?id=61596196576308" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent"><Facebook size={14}/>Facebook</a>
+        <a href="https://github.com/Youssef-kobaisy" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent"><Github size={14}/>GitHub</a>
       </div>
 
       <div className="relative z-10 mt-10 flex flex-col gap-10 border-t border-border pt-8 md:flex-row md:items-end md:justify-between">
