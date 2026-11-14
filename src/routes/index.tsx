@@ -1,12 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Portfolio from "../components/Portfolio";
 
-const pageTitle = "Youssef Kobaisy | Python & C++ Desktop Developer";
+const pageTitle = "Python & C++ Desktop Developer | Youssef Kobaisy";
 const pageDescription =
   "Youssef Kobaisy (Youssef Abdelhady), يوسف عبد الهادي، Python & C++ desktop developer in Egypt building practical software and bilingual applications.";
 const siteUrl = "https://youssef-kobaisy.work";
 const portraitUrl = `${siteUrl}/images/youssef-portrait.jpg`;
 const socialImageUrl = `${siteUrl}/og-image.png`;
+const logoUrl = `${siteUrl}/icon-512.png`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -17,6 +18,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: pageTitle },
       { property: "og:description", content: pageDescription },
       { property: "og:image", content: socialImageUrl },
+      { property: "og:image:secure_url", content: socialImageUrl },
       { property: "og:image:alt", content: "Youssef Abdelhady, Python and C++ desktop developer" },
       { property: "og:image:type", content: "image/png" },
       { property: "og:image:width", content: "1200" },
@@ -62,12 +64,34 @@ export const Route = createFileRoute("/")({
               ],
             },
             {
+              "@type": "Organization",
+              "@id": `${siteUrl}/#organization`,
+              name: "Youssef Kobaisy",
+              alternateName: ["Youssef Abdelhady", "يوسف عبد الهادي", "يوسف قبيصي"],
+              url: siteUrl,
+              logo: {
+                "@type": "ImageObject",
+                url: logoUrl,
+                width: 512,
+                height: 512,
+              },
+              image: logoUrl,
+              sameAs: [
+                "https://github.com/Youssef-kobaisy",
+                "https://www.linkedin.com/in/youssef-abdalhady-57111b38b",
+                "https://youtube.com/@tech.at.moment",
+                "https://www.instagram.com/youssef.kobaisy",
+                "https://www.facebook.com/profile.php?id=61596196576308",
+              ],
+            },
+            {
               "@type": "ProfilePage",
               "@id": `${siteUrl}/#profile`,
               name: pageTitle,
               url: siteUrl,
               isPartOf: { "@id": `${siteUrl}/#website` },
               mainEntity: { "@id": `${siteUrl}/#person` },
+              primaryImageOfPage: { "@id": `${siteUrl}/#portrait` },
               inLanguage: ["en", "ar"],
             },
             {
@@ -78,8 +102,9 @@ export const Route = createFileRoute("/")({
               jobTitle: "Python & C++ Desktop Developer",
               description: pageDescription,
               url: siteUrl,
-              image: portraitUrl,
+              image: { "@id": `${siteUrl}/#portrait` },
               mainEntityOfPage: { "@id": `${siteUrl}/#profile` },
+              worksFor: { "@id": `${siteUrl}/#organization` },
               alumniOf: {
                 "@type": "EducationalOrganization",
                 name: "Elsewedy International Applied Technology School",
@@ -97,6 +122,16 @@ export const Route = createFileRoute("/")({
                 "https://www.instagram.com/youssef.kobaisy",
                 "https://www.facebook.com/profile.php?id=61596196576308",
               ],
+            },
+            {
+              "@type": "ImageObject",
+              "@id": `${siteUrl}/#portrait`,
+              url: portraitUrl,
+              contentUrl: portraitUrl,
+              width: 1080,
+              height: 1685,
+              caption: "Portrait of Youssef Kobaisy",
+              inLanguage: ["en", "ar"],
             },
             {
               "@type": "SoftwareApplication",
