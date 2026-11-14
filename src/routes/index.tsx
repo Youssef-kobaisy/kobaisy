@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Portfolio from "../components/Portfolio";
 
-const pageTitle = "Youssef Abdelhady | Python & C++ Developer";
+const pageTitle = "Youssef Abdelhady | Python & C++ Desktop Developer";
 const pageDescription =
   "Youssef Abdelhady (Youssef Kobaisy) is a Python and C++ desktop developer in Egypt building practical applications, bilingual interfaces, and connected systems.";
 const siteUrl = "https://youssef-kobaisy.work";
@@ -50,6 +50,16 @@ export const Route = createFileRoute("/")({
               description: pageDescription,
               url: siteUrl,
               inLanguage: ["en", "ar"],
+              keywords: [
+                "Python developer Egypt",
+                "C++ desktop developer",
+                "Qt developer",
+                "Arduino serial communication",
+                "invoice reconciliation",
+                "مبرمج بايثون مصر",
+                "مطور تطبيقات سطح مكتب",
+                "يوسف عبد الهادي مبرمج",
+              ],
             },
             {
               "@type": "ProfilePage",
@@ -69,6 +79,7 @@ export const Route = createFileRoute("/")({
               description: pageDescription,
               url: siteUrl,
               image: portraitUrl,
+              mainEntityOfPage: { "@id": `${siteUrl}/#profile` },
               alumniOf: {
                 "@type": "EducationalOrganization",
                 name: "Elsewedy International Applied Technology School",
@@ -94,7 +105,6 @@ export const Route = createFileRoute("/")({
               alternateName: "مطابقة الفواتير الضريبية",
               description: "A bilingual desktop application comparing Egyptian Tax Authority records with a company ledger and producing a clear report.",
               applicationCategory: "BusinessApplication",
-              operatingSystem: "Windows",
               author: { "@id": `${siteUrl}/#person` },
               inLanguage: ["en", "ar"],
             },
